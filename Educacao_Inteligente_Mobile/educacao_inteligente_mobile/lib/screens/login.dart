@@ -1,3 +1,4 @@
+import 'package:educacao_inteligente_mobile/main.dart';
 import 'package:educacao_inteligente_mobile/model/usuario.dart';
 import 'package:educacao_inteligente_mobile/services/controllerusuario.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +47,7 @@ class _LoginState extends State<Login> {
                     senha: response[i].senha,
                     tipo: response[i].tipo);
                 usuarios.add(usuario);
+                print(response[i].senha);
               }
               return Column(
                 children: [
@@ -53,7 +55,7 @@ class _LoginState extends State<Login> {
                     padding: const EdgeInsets.all(50),
                     alignment: Alignment.center,
                     child: Image.asset(
-                      'images/logo.jpg',
+                      'images/logo.png',
                       height: 150,
                       width: 300,
                     ),
@@ -93,8 +95,8 @@ class _LoginState extends State<Login> {
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.green,
-                      onPrimary: Colors.pink[50],
+                      primary: Colors.purple,
+                      onPrimary: Colors.purple[50],
                     ),
                     onPressed: () {
                       if (_validacao(matricula.text, senha.text)) {
