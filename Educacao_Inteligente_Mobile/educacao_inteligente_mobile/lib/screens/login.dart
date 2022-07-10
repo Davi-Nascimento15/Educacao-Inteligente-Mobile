@@ -110,7 +110,7 @@ class _LoginState extends State<Login> {
                         ScaffoldMessenger.of(context)
                             .showSnackBar(const SnackBar(
                           content: Text(
-                            'matricula ou senha incorretos...',
+                            'Matricula ou Senha incorretos...',
                             style: TextStyle(fontSize: 16),
                           ),
                         ));
