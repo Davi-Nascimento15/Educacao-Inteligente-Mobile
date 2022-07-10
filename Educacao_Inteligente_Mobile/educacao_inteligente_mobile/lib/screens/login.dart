@@ -17,7 +17,7 @@ class _LoginState extends State<Login> {
 
   bool _validacao(String matricula, String senha) {
     for (int i = 0; i < usuarios.length; i++) {
-      if (usuarios[i].idmatricula == matricula) {
+      if (usuarios[i].idmatricula == int.parse(matricula)) {
         if (usuarios[i].senha == senha) {
           return true;
         }
@@ -128,6 +128,8 @@ class _LoginState extends State<Login> {
                   ),
                 ],
               );
+            } else {
+              return const CircularProgressIndicator();
             }
           }),
     );
