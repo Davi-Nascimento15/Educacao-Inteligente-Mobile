@@ -1,5 +1,5 @@
-import 'package:educacao_inteligente_mobile/main.dart';
 import 'package:educacao_inteligente_mobile/model/usuario.dart';
+import 'package:educacao_inteligente_mobile/screens/home.dart';
 import 'package:educacao_inteligente_mobile/services/controllerusuario.dart';
 import 'package:flutter/material.dart';
 
@@ -103,7 +103,7 @@ class _LoginState extends State<Login> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const Login(),
+                            builder: (context) => const Home(),
                           ),
                         );
                       } else {
