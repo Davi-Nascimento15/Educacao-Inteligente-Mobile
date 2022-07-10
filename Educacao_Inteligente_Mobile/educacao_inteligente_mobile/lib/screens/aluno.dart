@@ -1,4 +1,6 @@
+import 'package:educacao_inteligente_mobile/screens/faltas.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class Aluno extends StatefulWidget {
   const Aluno({Key key}) : super(key: key);
@@ -25,7 +27,14 @@ class _AlunoState extends State<Aluno> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: Colors.white, onPrimary: Colors.purple[50]),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Faltas(),
+                    ),
+                  );
+                },
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                   child: Column(
