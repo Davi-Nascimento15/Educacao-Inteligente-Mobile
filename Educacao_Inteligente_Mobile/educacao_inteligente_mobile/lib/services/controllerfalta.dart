@@ -21,7 +21,7 @@ Future<http.Response> createfalta(Falta falta) async {
 
 Future<http.Response> editfalta(Falta falta) async {
   final response = await http.put(
-    '$url/${falta.idpresenca}',
+    '$url/${falta.idPresenca}',
     headers: {'content-type': 'application/json'},
     body: faltaToJson(falta),
   );

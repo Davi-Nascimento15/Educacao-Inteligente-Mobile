@@ -1,25 +1,27 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:convert';
 
 class Falta {
-  int idpresenca;
-  String data;
-  bool falta;
-  int idaluno;
+  int idPresenca;
+  String Data;
+  String falta;
+  int aluno_idaluno;
 
-  Falta({this.idpresenca, this.data, this.falta, this.idaluno});
+  Falta({this.idPresenca, this.Data, this.falta, this.aluno_idaluno});
 
   //Json > Falta
   factory Falta.fromJson(Map<String, dynamic> json) {
     return Falta(
-        idpresenca: json['idpresenca'],
-        data: json['data'],
+        idPresenca: json['idPresenca'],
+        Data: json['Data'],
         falta: json['falta'],
-        idaluno: json['idaluno']);
+        aluno_idaluno: json['aluno_idaluno']);
   }
 
   //Falta > Json
   Map<String, dynamic> toJson() {
-    return {"data": data, "falta": falta, "idaluno": idaluno};
+    return {"Data": Data, "falta": falta, "aluno_idaluno": aluno_idaluno};
   }
 }
 

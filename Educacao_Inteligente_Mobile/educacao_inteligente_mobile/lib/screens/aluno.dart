@@ -1,6 +1,5 @@
 import 'package:educacao_inteligente_mobile/screens/faltas.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 class Aluno extends StatefulWidget {
   const Aluno({Key key}) : super(key: key);
