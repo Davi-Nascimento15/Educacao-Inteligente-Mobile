@@ -1,20 +1,19 @@
 import 'package:educacao_inteligente_mobile/model/sugestao.dart';
-import 'package:educacao_inteligente_mobile/screens/sugestao/mylistsugestao.dart';
 import 'package:educacao_inteligente_mobile/services/controllersugestao.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
-class CreateSugestao extends StatefulWidget {
-  const CreateSugestao({Key key}) : super(key: key);
+class EditSugestao extends StatefulWidget {
+  final Sugestao sugestao;
+  const EditSugestao({Key key, this.sugestao}) : super(key: key);
 
   @override
-  State<CreateSugestao> createState() => _CreateSugestaoState();
+  State<EditSugestao> createState() => _EditSugestaoState();
 }
 
-class _CreateSugestaoState extends State<CreateSugestao> {
-  TextEditingController controllertitulo;
-  TextEditingController controllerdescricao;
-  TextEditingController controllerlike;
+class _EditSugestaoState extends State<EditSugestao> {
+  TextEditingController controllertitulo = TextEditingController();
+  TextEditingController controllerdescricao = TextEditingController();
+  TextEditingController controllerlike = TextEditingController();
 
   //clear
   @override
@@ -28,10 +27,9 @@ class _CreateSugestaoState extends State<CreateSugestao> {
   //gerenciar estado
   @override
   void initState() {
+    controllertitulo.text = widget.sugestao.titulo;
+    controllerdescricao.text = widget.sugestao.descricao;
     super.initState();
-    controllertitulo = TextEditingController();
-    controllerdescricao = TextEditingController();
-    controllerlike = TextEditingController();
   }
 
   @override
@@ -40,7 +38,7 @@ class _CreateSugestaoState extends State<CreateSugestao> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.purple[500],
-        title: const Text("Cadastrar Sugestão"),
+        title: const Text("Editar Sugestão"),
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(60, 20, 60, 0),
@@ -76,12 +74,12 @@ class _CreateSugestaoState extends State<CreateSugestao> {
               ),
               onPressed: () async {
                 Sugestao sugestao = Sugestao(
-                    idSugestao: "1",
+                    idSugestao: widget.sugestao.idSugestao,
                     titulo: controllertitulo.text,
                     descricao: controllerdescricao.text,
                     curtidas: 3,
-                    usuario_idmatricula: 777);
-                await createsugestao(sugestao);
+                    usuario_idmatricula: 123);
+                await editsugestao(sugestao);
                 Navigator.pop(context);
               },
               child: const Padding(

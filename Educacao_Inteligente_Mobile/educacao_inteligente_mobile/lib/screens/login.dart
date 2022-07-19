@@ -47,7 +47,6 @@ class _LoginState extends State<Login> {
                     senha: response[i].senha,
                     tipo: response[i].tipo);
                 usuarios.add(usuario);
-                print(response[i].senha);
               }
               return Column(
                 children: [
