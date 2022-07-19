@@ -1,4 +1,7 @@
+import 'package:educacao_inteligente_mobile/screens/aviso.dart';
 import 'package:educacao_inteligente_mobile/screens/faltas.dart';
+import 'package:educacao_inteligente_mobile/screens/prova.dart';
+import 'package:educacao_inteligente_mobile/screens/tarefa.dart';
 import 'package:flutter/material.dart';
 
 class Aluno extends StatefulWidget {
@@ -30,7 +33,7 @@ class _AlunoState extends State<Aluno> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Faltas(),
+                      builder: (context) => Faltas(),
                     ),
                   );
                 },
@@ -60,7 +63,14 @@ class _AlunoState extends State<Aluno> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: Colors.white, onPrimary: Colors.purple[50]),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Avisos(),
+                    ),
+                  );
+                },
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                   child: Column(
@@ -87,13 +97,20 @@ class _AlunoState extends State<Aluno> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: Colors.white, onPrimary: Colors.purple[50]),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Provas(),
+                    ),
+                  );
+                },
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                   child: Column(
                     children: [
                       Icon(
-                        Icons.photo_camera_back_rounded,
+                        Icons.warning,
                         size: 40,
                         color: Colors.purple[600],
                       ),
@@ -141,13 +158,20 @@ class _AlunoState extends State<Aluno> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: Colors.white, onPrimary: Colors.purple[50]),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Tarefas(),
+                    ),
+                  );
+                },
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                   child: Column(
                     children: [
                       Icon(
-                        Icons.person,
+                        Icons.book_sharp,
                         size: 40,
                         color: Colors.purple[600],
                       ),
