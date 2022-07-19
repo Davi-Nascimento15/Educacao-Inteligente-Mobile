@@ -1,4 +1,5 @@
-import 'package:educacao_inteligente_mobile/screens/login.dart';
+import 'package:educacao_inteligente_mobile/screens/home.dart';
+import 'package:educacao_inteligente_mobile/screens/sugestao/escolhasugestao.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -9,7 +10,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: [Locale('pt', 'BR')],
       title: 'Educação Inteligente',
       debugShowCheckedModeBanner: false,
-      home: Login(),
+      home: Home(),
     );
   }
 }

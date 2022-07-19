@@ -8,9 +8,3 @@ Future<List<Usuario>> listUser() async {
   final response = await http.get(url);
   return usuarioFromJson(response.body);
 }
-
-//Future<Usuario> findusuario(int id) async {
-  //final response = await http.get('$url/$id');
-  //Usuario usuario = Usuario.fromJson(response.body);
-  //return usuario;
-//}
