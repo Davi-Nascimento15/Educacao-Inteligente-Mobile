@@ -1,8 +1,6 @@
 import 'package:educacao_inteligente_mobile/model/sugestao.dart';
-import 'package:educacao_inteligente_mobile/screens/sugestao/mylistsugestao.dart';
 import 'package:educacao_inteligente_mobile/services/controllersugestao.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class CreateSugestao extends StatefulWidget {
   const CreateSugestao({Key key}) : super(key: key);
