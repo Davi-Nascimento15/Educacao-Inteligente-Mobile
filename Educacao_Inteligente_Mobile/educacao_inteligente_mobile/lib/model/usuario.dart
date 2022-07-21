@@ -5,16 +5,38 @@ class Usuario {
   String nome;
   String senha;
   int tipo;
+  int idaluno;
+  int anoAluno;
+  int matriculaAluno;
+  String nomeAluno;
+  int turnoAluno;
+  int turmaidAluno;
 
-  Usuario({this.idmatricula, this.nome, this.senha, this.tipo});
+  Usuario(
+      {this.idmatricula,
+      this.nome,
+      this.senha,
+      this.tipo,
+      this.idaluno,
+      this.anoAluno,
+      this.matriculaAluno,
+      this.nomeAluno,
+      this.turmaidAluno,
+      this.turnoAluno});
 
   //Json > Usuario
   factory Usuario.fromJson(Map<String, dynamic> json) {
     return Usuario(
-        idmatricula: json['idmatricula'],
-        nome: json['nome'],
-        senha: json['senha'],
-        tipo: json['tipo']);
+        idmatricula: json['matriculaUsuario'],
+        nome: json['nomeUsuario'],
+        senha: json['senhaUsuario'],
+        tipo: json['tipoUsuario'],
+        idaluno: json['idaluno'],
+        anoAluno: json['ano'],
+        matriculaAluno: json['matricula'],
+        nomeAluno: json['nome'],
+        turnoAluno: json['turno'],
+        turmaidAluno: json['turma_idTurma']);
   }
 
   //Usuario > Json

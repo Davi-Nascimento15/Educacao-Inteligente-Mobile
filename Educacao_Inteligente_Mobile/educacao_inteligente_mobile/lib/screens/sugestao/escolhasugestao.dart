@@ -1,9 +1,11 @@
+import 'package:educacao_inteligente_mobile/model/usuario.dart';
 import 'package:educacao_inteligente_mobile/screens/sugestao/listsugestao.dart';
 import 'package:educacao_inteligente_mobile/screens/sugestao/mylistsugestao.dart';
 import 'package:flutter/material.dart';
 
 class EscolhaSugestao extends StatelessWidget {
-  const EscolhaSugestao({Key key}) : super(key: key);
+  final Usuario usuario;
+  const EscolhaSugestao({Key key, this.usuario}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,10 @@ class EscolhaSugestao extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const ListSugestao()),
+                  MaterialPageRoute(
+                      builder: (context) => ListSugestao(
+                            usuario: usuario,
+                          )),
                 );
               },
               child: Padding(
@@ -59,7 +64,7 @@ class EscolhaSugestao extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const MyListSugestao()),
+                      builder: (context) => MyListSugestao(usuario: usuario)),
                 );
               },
               child: Padding(

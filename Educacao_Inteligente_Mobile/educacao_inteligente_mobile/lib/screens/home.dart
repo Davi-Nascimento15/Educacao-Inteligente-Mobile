@@ -1,9 +1,11 @@
+import 'package:educacao_inteligente_mobile/model/usuario.dart';
 import 'package:educacao_inteligente_mobile/screens/aluno.dart';
 import 'package:educacao_inteligente_mobile/screens/sugestao/escolhasugestao.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key key}) : super(key: key);
+  final Usuario usuario;
+  const Home({Key key, this.usuario}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -152,7 +154,9 @@ class _HomeState extends State<Home> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const Aluno(),
+                            builder: (context) => Aluno(
+                              usuario: widget.usuario,
+                            ),
                           ),
                         );
                       },
@@ -211,7 +215,9 @@ class _HomeState extends State<Home> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const EscolhaSugestao(),
+                            builder: (context) => EscolhaSugestao(
+                              usuario: widget.usuario,
+                            ),
                           ),
                         );
                       },

@@ -1,11 +1,13 @@
 import 'package:educacao_inteligente_mobile/model/sugestao.dart';
+import 'package:educacao_inteligente_mobile/model/usuario.dart';
 import 'package:educacao_inteligente_mobile/screens/sugestao/createsugestao.dart';
 import 'package:educacao_inteligente_mobile/screens/sugestao/editsugestao.dart';
 import 'package:educacao_inteligente_mobile/services/controllersugestao.dart';
 import 'package:flutter/material.dart';
 
 class MyListSugestao extends StatefulWidget {
-  const MyListSugestao({Key key}) : super(key: key);
+  final Usuario usuario;
+  const MyListSugestao({Key key, this.usuario}) : super(key: key);
 
   @override
   State<MyListSugestao> createState() => _MyListSugestaoState();
@@ -19,7 +21,7 @@ class _MyListSugestaoState extends State<MyListSugestao> {
           backgroundColor: Colors.purple[500],
           title: const Text('Minhas Sugestões')),
       body: FutureBuilder(
-        future: listsugestaousuario(777),
+        future: listsugestaousuario(widget.usuario.idmatricula),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return Center(
@@ -53,7 +55,8 @@ class _MyListSugestaoState extends State<MyListSugestao> {
                                 titulo: sugestaoItem.titulo,
                                 descricao: sugestaoItem.descricao,
                                 curtidas: 3,
-                                usuario_idmatricula: 123);
+                                usuario_idmatricula:
+                                    sugestaoItem.usuario_idmatricula);
                             await Navigator.push(
                               context,
                               MaterialPageRoute(

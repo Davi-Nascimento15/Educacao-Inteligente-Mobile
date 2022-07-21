@@ -11,6 +11,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  Usuario usuario;
   bool exibe = false;
   TextEditingController matricula = TextEditingController();
   TextEditingController senha = TextEditingController();
@@ -20,6 +21,7 @@ class _LoginState extends State<Login> {
     for (int i = 0; i < usuarios.length; i++) {
       if (usuarios[i].idmatricula == int.parse(matricula)) {
         if (usuarios[i].senha == senha) {
+          usuario = usuarios[i];
           return true;
         }
       }
@@ -45,7 +47,13 @@ class _LoginState extends State<Login> {
                     idmatricula: response[i].idmatricula,
                     nome: response[i].nome,
                     senha: response[i].senha,
-                    tipo: response[i].tipo);
+                    tipo: response[i].tipo,
+                    idaluno: response[i].idaluno,
+                    nomeAluno: response[i].nomeAluno,
+                    matriculaAluno: response[i].matriculaAluno,
+                    anoAluno: response[i].anoAluno,
+                    turmaidAluno: response[i].turmaidAluno,
+                    turnoAluno: response[i].turnoAluno);
                 usuarios.add(usuario);
               }
               return Column(
@@ -102,7 +110,9 @@ class _LoginState extends State<Login> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const Home(),
+                            builder: (context) => Home(
+                              usuario: usuario,
+                            ),
                           ),
                         );
                       } else {
