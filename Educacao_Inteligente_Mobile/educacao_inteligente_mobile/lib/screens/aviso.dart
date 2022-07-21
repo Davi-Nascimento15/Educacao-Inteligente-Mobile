@@ -1,14 +1,16 @@
 import 'dart:async';
 import 'package:educacao_inteligente_mobile/model/aviso.dart';
 import 'package:educacao_inteligente_mobile/model/falta.dart';
+import 'package:educacao_inteligente_mobile/model/usuario.dart';
 import 'package:educacao_inteligente_mobile/services/controlleraviso.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 // ignore: must_be_immutable
 class Avisos extends StatefulWidget {
+  final Usuario usuario;
   int atualiza = 0;
-  Avisos({Key key}) : super(key: key);
+  Avisos({Key key, this.usuario}) : super(key: key);
 
   @override
   State<Avisos> createState() => _AvisosState();
@@ -75,7 +77,7 @@ class _AvisosState extends State<Avisos> {
       body: Column(
         children: [
           FutureBuilder(
-            future: listavisoturma(1),
+            future: listavisoturma(widget.usuario.turmaidAluno),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
                 return Center(

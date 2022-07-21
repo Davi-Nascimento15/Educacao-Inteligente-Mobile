@@ -1,13 +1,15 @@
 import 'dart:async';
 import 'package:educacao_inteligente_mobile/model/falta.dart';
+import 'package:educacao_inteligente_mobile/model/usuario.dart';
 import 'package:educacao_inteligente_mobile/services/controllerfalta.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 // ignore: must_be_immutable
 class Faltas extends StatefulWidget {
+  final Usuario usuario;
   int atualiza = 0;
-  Faltas({Key key}) : super(key: key);
+  Faltas({Key key, this.usuario}) : super(key: key);
 
   @override
   State<Faltas> createState() => _FaltasState();
@@ -74,7 +76,7 @@ class _FaltasState extends State<Faltas> {
       body: Column(
         children: [
           FutureBuilder(
-            future: listfaltaaluno(4),
+            future: listfaltaaluno(widget.usuario.idaluno),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
                 return Center(

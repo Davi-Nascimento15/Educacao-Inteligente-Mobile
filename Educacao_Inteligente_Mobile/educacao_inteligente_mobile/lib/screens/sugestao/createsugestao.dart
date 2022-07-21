@@ -1,9 +1,11 @@
 import 'package:educacao_inteligente_mobile/model/sugestao.dart';
+import 'package:educacao_inteligente_mobile/model/usuario.dart';
 import 'package:educacao_inteligente_mobile/services/controllersugestao.dart';
 import 'package:flutter/material.dart';
 
 class CreateSugestao extends StatefulWidget {
-  const CreateSugestao({Key key}) : super(key: key);
+  final Usuario usuario;
+  const CreateSugestao({Key key, this.usuario}) : super(key: key);
 
   @override
   State<CreateSugestao> createState() => _CreateSugestaoState();
@@ -78,7 +80,7 @@ class _CreateSugestaoState extends State<CreateSugestao> {
                     titulo: controllertitulo.text,
                     descricao: controllerdescricao.text,
                     curtidas: 3,
-                    usuario_idmatricula: 777);
+                    usuario_idmatricula: widget.usuario.idmatricula);
                 await createsugestao(sugestao);
                 Navigator.pop(context);
               },
