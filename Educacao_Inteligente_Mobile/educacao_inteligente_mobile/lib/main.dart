@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate
       ],
       supportedLocales: [Locale('pt', 'BR')],
-      title: 'Educação Inteligente',
+      title: 'Educação Inteligente ',
       debugShowCheckedModeBanner: false,
       home: Login(),
     );
