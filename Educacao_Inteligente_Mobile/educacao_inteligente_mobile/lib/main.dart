@@ -1,4 +1,4 @@
-import 'package:educacao_inteligente_mobile/screens/home.dart';
+import 'package:educacao_inteligente_mobile/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -17,9 +17,9 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate
       ],
       supportedLocales: [Locale('pt', 'BR')],
-      title: 'Educação Inteligente',
+      title: 'Educação Inteligente ',
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: Login(),
     );
   }
 }

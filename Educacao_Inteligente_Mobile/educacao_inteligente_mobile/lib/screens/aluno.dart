@@ -1,3 +1,4 @@
+import 'package:educacao_inteligente_mobile/model/usuario.dart';
 import 'package:educacao_inteligente_mobile/screens/aviso.dart';
 import 'package:educacao_inteligente_mobile/screens/faltas.dart';
 import 'package:educacao_inteligente_mobile/screens/prova.dart';
@@ -5,7 +6,8 @@ import 'package:educacao_inteligente_mobile/screens/tarefa.dart';
 import 'package:flutter/material.dart';
 
 class Aluno extends StatefulWidget {
-  const Aluno({Key key}) : super(key: key);
+  final Usuario usuario;
+  const Aluno({Key key, this.usuario}) : super(key: key);
 
   @override
   State<Aluno> createState() => _AlunoState();
@@ -16,7 +18,7 @@ class _AlunoState extends State<Aluno> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Nome do Aluno'),
+        title: Text(widget.usuario.nomeAluno),
         backgroundColor: Colors.purple,
       ),
       backgroundColor: Colors.purple[50],
@@ -33,7 +35,9 @@ class _AlunoState extends State<Aluno> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Faltas(),
+                      builder: (context) => Faltas(
+                        usuario: widget.usuario,
+                      ),
                     ),
                   );
                 },
@@ -67,7 +71,9 @@ class _AlunoState extends State<Aluno> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Avisos(),
+                      builder: (context) => Avisos(
+                        usuario: widget.usuario,
+                      ),
                     ),
                   );
                 },
@@ -101,7 +107,9 @@ class _AlunoState extends State<Aluno> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Provas(),
+                      builder: (context) => Provas(
+                        usuario: widget.usuario,
+                      ),
                     ),
                   );
                 },
@@ -162,7 +170,9 @@ class _AlunoState extends State<Aluno> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Tarefas(),
+                      builder: (context) => Tarefas(
+                        usuario: widget.usuario,
+                      ),
                     ),
                   );
                 },

@@ -1,10 +1,12 @@
 import 'package:educacao_inteligente_mobile/model/sugestao.dart';
+import 'package:educacao_inteligente_mobile/model/usuario.dart';
 import 'package:educacao_inteligente_mobile/screens/sugestao/createsugestao.dart';
 import 'package:educacao_inteligente_mobile/services/controllersugestao.dart';
 import 'package:flutter/material.dart';
 
 class ListSugestao extends StatefulWidget {
-  const ListSugestao({Key key}) : super(key: key);
+  final Usuario usuario;
+  const ListSugestao({Key key, this.usuario}) : super(key: key);
 
   @override
   State<ListSugestao> createState() => _ListSugestaoState();
@@ -109,7 +111,10 @@ class _ListSugestaoState extends State<ListSugestao> {
         onPressed: () async {
           await Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const CreateSugestao()),
+            MaterialPageRoute(
+                builder: (context) => CreateSugestao(
+                      usuario: widget.usuario,
+                    )),
           );
           setState(() {});
         },
