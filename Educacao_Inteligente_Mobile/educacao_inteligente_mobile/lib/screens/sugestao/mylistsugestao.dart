@@ -153,7 +153,8 @@ class _MyListSugestaoState extends State<MyListSugestao> {
         onPressed: () async {
           await Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const CreateSugestao()),
+            MaterialPageRoute(
+                builder: (context) => CreateSugestao(usuario: widget.usuario)),
           );
           setState(() {});
         },
