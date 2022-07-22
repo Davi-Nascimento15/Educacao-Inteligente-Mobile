@@ -1,5 +1,6 @@
 import 'package:educacao_inteligente_mobile/model/usuario.dart';
 import 'package:educacao_inteligente_mobile/screens/aluno.dart';
+import 'package:educacao_inteligente_mobile/screens/anoletivo.dart';
 import 'package:educacao_inteligente_mobile/screens/sugestao/escolhasugestao.dart';
 import 'package:flutter/material.dart';
 
@@ -72,7 +73,16 @@ class _HomeState extends State<Home> {
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           primary: Colors.white, onPrimary: Colors.purple[50]),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AnoLetivo(
+                              usuario: widget.usuario,
+                            ),
+                          ),
+                        );
+                      },
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
                         child: Column(
