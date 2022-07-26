@@ -24,6 +24,15 @@ class Usuario {
       this.turmaidAluno,
       this.turnoAluno});
 
+  //Json > UsuarioChat
+  factory Usuario.fromJsonChat(Map<String, dynamic> json) {
+    return Usuario(
+        idmatricula: json['idmatricula'],
+        nome: json['nome'],
+        senha: json['senha'],
+        tipo: json['tipo']);
+  }
+
   //Json > Usuario
   factory Usuario.fromJson(Map<String, dynamic> json) {
     return Usuario(
@@ -50,6 +59,14 @@ List<Usuario> usuarioFromJson(String strJson) {
   final str = json.decode(strJson);
   return List<Usuario>.from(str.map((item) {
     return Usuario.fromJson(item);
+  }));
+}
+
+//List user
+List<Usuario> usuarioFromJsonChat(String strJson) {
+  final str = json.decode(strJson);
+  return List<Usuario>.from(str.map((item) {
+    return Usuario.fromJsonChat(item);
   }));
 }
 

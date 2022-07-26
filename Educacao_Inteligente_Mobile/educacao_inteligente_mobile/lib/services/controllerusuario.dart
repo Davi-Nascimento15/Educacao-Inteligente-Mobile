@@ -8,3 +8,8 @@ Future<List<Usuario>> listUser() async {
   final response = await http.get(url);
   return usuarioFromJson(response.body);
 }
+
+Future<List<Usuario>> listChat() async {
+  final response = await http.get('$url/chat');
+  return usuarioFromJsonChat(response.body);
+}
