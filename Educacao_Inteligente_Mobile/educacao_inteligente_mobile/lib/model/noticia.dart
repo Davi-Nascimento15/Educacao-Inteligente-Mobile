@@ -14,7 +14,6 @@ class Noticia {
     this.dataGeracao,
   });
 
-  @override
   Widget render() {
     return Card(
         semanticContainer: true,
@@ -23,7 +22,6 @@ class Noticia {
         child: renderContent());
   }
 
-  @override
   Widget renderContent() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,7 +35,6 @@ class Noticia {
     );
   }
 
-  @override
   Widget renderContent2() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +48,6 @@ class Noticia {
     );
   }
 
-  @override
   Widget renderBottom() {
     return Column(
       children: <Widget>[

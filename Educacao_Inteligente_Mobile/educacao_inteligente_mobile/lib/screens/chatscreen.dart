@@ -29,7 +29,7 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   void timerStart() {
-    timer = Timer.periodic(const Duration(seconds: 5), (context) {
+    timer = Timer.periodic(const Duration(seconds: 1), (context) {
       setState(() {
         controller.jumpTo(controller.position.maxScrollExtent);
       });
@@ -44,7 +44,7 @@ class _ChatScreenState extends State<ChatScreen> {
     await createmensagemchat(MensagemChat(
         conteudo: mensagem,
         data: DateTime.now().toString(),
-        hora: DateTime.now().hour.toString(),
+        hora: '${DateTime.now().hour.toString()}:${DateTime.now().minute}',
         visualizada: "0",
         destinatario_idmatricula: widget.destinatario.idmatricula,
         remetente_idmatricula: widget.usuario.idmatricula));
@@ -58,6 +58,7 @@ class _ChatScreenState extends State<ChatScreen> {
           title: Row(
             children: [
               const Icon(Icons.person),
+              const Padding(padding: EdgeInsets.fromLTRB(5, 0, 5, 0)),
               Text(widget.destinatario.nome)
             ],
           )),
@@ -86,9 +87,9 @@ class _ChatScreenState extends State<ChatScreen> {
               reverse: false,
               itemCount: listMensagemChat.length,
               itemBuilder: (context, index) {
-                visualiza(listMensagemChat[index]);
-
-                if (listMensagemChat[index].visualizada.toString() == '1') {}
+                if (listMensagemChat[index].visualizada.toString() == '0') {
+                  visualiza(listMensagemChat[index]);
+                }
                 return message(
                     listMensagemChat[index],
                     widget.usuario.idmatricula,
@@ -113,9 +114,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     onPressed: () {
                       enviarmensagem(mensagem.text);
                       mensagem.text = "";
-                      setState(() {
-                        controller.jumpTo(controller.position.maxScrollExtent);
-                      });
+                      setState(() {});
                     },
                     icon: const Icon(Icons.send, color: Colors.purple))
               ],
@@ -130,13 +129,18 @@ class _ChatScreenState extends State<ChatScreen> {
 Widget message(MensagemChat mensagemChat, int remetente, int destinatario) {
   if (mensagemChat.destinatario_idmatricula == destinatario) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 25.0),
+      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
       margin:
-          const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 80.0, right: 8.0),
-      child: Row(children: [
-        const Icon(Icons.person),
-        const Padding(padding: EdgeInsets.fromLTRB(0, 0, 10, 0)),
-        Text(mensagemChat.conteudo)
+          const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 80.0, right: 8.0),
+      child: Column(children: [
+        Row(children: [
+          const Icon(Icons.person),
+          const Padding(padding: EdgeInsets.fromLTRB(0, 0, 10, 0)),
+          Text(mensagemChat.conteudo),
+        ]),
+        Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+          Text(mensagemChat.hora),
+        ]),
       ]),
       decoration: BoxDecoration(
         color: Colors.purple[300],
@@ -148,10 +152,17 @@ Widget message(MensagemChat mensagemChat, int remetente, int destinatario) {
     );
   } else {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 25.0),
+      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
       margin:
-          const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0, right: 80.0),
-      child: Text(mensagemChat.conteudo),
+          const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 8.0, right: 80.0),
+      child: Column(children: [
+        Row(children: [
+          Text(mensagemChat.conteudo),
+        ]),
+        Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+          Text(mensagemChat.hora),
+        ]),
+      ]),
       decoration: BoxDecoration(
         color: Colors.purple[100],
         borderRadius: const BorderRadius.only(

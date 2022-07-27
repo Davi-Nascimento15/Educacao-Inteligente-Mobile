@@ -1,9 +1,11 @@
 import 'package:educacao_inteligente_mobile/model/noticia.dart';
+import 'package:educacao_inteligente_mobile/model/usuario.dart';
 import 'package:educacao_inteligente_mobile/services/controllernoticia.dart';
 import 'package:flutter/material.dart';
 
 class ListNoticia extends StatefulWidget {
-  const ListNoticia({Key key}) : super(key: key);
+  final Usuario usuario;
+  const ListNoticia({Key key, this.usuario}) : super(key: key);
 
   @override
   State<ListNoticia> createState() => _ListNoticiaState();
