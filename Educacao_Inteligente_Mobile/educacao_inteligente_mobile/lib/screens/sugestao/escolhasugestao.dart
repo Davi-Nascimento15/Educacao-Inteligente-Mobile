@@ -16,7 +16,7 @@ class EscolhaSugestao extends StatelessWidget {
         backgroundColor: Colors.purple[500],
       ),
       body: Container(
-        padding: const EdgeInsets.fromLTRB(60, 200, 60, 0),
+        padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
         alignment: Alignment.center,
         child: GridView.count(
           crossAxisCount: 2,
@@ -41,13 +41,13 @@ class EscolhaSugestao extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.list,
-                      size: 100,
+                      size: 90,
                       color: Colors.purple[600],
                     ),
                     const Text(
                       "Sugestões",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 15,
                         color: Colors.purple,
                         fontWeight: FontWeight.bold,
                         // fontFamily: 'Ms Madi')
@@ -73,16 +73,18 @@ class EscolhaSugestao extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.my_library_books_outlined,
-                      size: 100,
+                      size: 90,
                       color: Colors.purple[600],
                     ),
-                    const Text(
-                      "Minhas Sugestões",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.purple,
-                        fontWeight: FontWeight.bold,
-                        // fontFamily: 'Ms Madi')
+                    const Center(
+                      child: Text(
+                        "Minhas Sugestões",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.purple,
+                          fontWeight: FontWeight.bold,
+                          // fontFamily: 'Ms Madi')
+                        ),
                       ),
                     ),
                   ],

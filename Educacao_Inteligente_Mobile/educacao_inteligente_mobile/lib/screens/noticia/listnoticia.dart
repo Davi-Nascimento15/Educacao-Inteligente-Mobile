@@ -23,6 +23,7 @@ class _ListNoticiaState extends State<ListNoticia> {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.purple[500], title: const Text('Noticías')),
+      backgroundColor: Colors.purple[50],
       body: RefreshIndicator(
         triggerMode: RefreshIndicatorTriggerMode.onEdge,
         edgeOffset: 0,
