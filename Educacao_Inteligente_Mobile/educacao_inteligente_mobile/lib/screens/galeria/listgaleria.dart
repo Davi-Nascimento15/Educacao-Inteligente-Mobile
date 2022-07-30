@@ -38,14 +38,44 @@ class _ListGaleriaState extends State<ListGaleria> {
 
   @override
   Widget build(BuildContext context) {
+    if (loading) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    }
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
       ),
-      itemBuilder: (context, index) {
-        return Image.network('https://picsum.photos/id/${ids[index]}/300/300');
-      },
+      itemBuilder: (context, index) => GestureDetector(
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => ImagePage(ids[index]),
+            ),
+          );
+        },
+        child: Image.network(
+          'https://picsum.photos/id/${ids[index]}/300/300',
+        ),
+      ),
       itemCount: ids.length,
+    );
+  }
+}
+
+class ImagePage extends StatelessWidget {
+  final String id;
+  ImagePage(this.id);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+      ),
+      backgroundColor: Colors.black,
+      body: Image.network('https://picsum.photos/id/$id/600/600'),
     );
   }
 }

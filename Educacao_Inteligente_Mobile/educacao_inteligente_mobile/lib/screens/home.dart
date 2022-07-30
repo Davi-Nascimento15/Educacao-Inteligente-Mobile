@@ -5,6 +5,7 @@ import 'package:educacao_inteligente_mobile/screens/noticia/listnoticia.dart';
 import 'package:educacao_inteligente_mobile/screens/sugestao/escolhasugestao.dart';
 import 'package:educacao_inteligente_mobile/screens/sugestao/listchat.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
   final Usuario usuario;
@@ -12,6 +13,15 @@ class Home extends StatefulWidget {
 
   @override
   State<Home> createState() => _HomeState();
+}
+
+abrirUrl() async {
+  const url = 'http://www.alfenas.mg.gov.br/category/noticias/';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
 }
 
 class _HomeState extends State<Home> {
@@ -276,7 +286,9 @@ class _HomeState extends State<Home> {
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           primary: Colors.white, onPrimary: Colors.purple[50]),
-                      onPressed: () {},
+                      onPressed: () {
+                        abrirUrl();
+                      },
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
                         child: Column(
