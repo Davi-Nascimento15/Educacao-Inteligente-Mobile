@@ -29,18 +29,33 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   void timerStart() {
-    timer = Timer.periodic(const Duration(seconds: 1), (context) {
+    timer = Timer.periodic(const Duration(seconds: 5), (context) {
       setState(() {
         controller.jumpTo(controller.position.maxScrollExtent);
       });
     });
   }
 
+/*
+  void atualiza() {
+    if (nummensagem == 0 || listMensagemChat.length > nummensagem) {
+      Provider.of<NotificationService>(context, listen: false)
+          .showLocalNotification(CustomNotification(
+              id: listMensagemChat.length,
+              title: widget.destinatario.nome,
+              body: listMensagemChat[listMensagemChat.length].conteudo,
+              payload: null));
+      nummensagem = listMensagemChat.length;
+    }
+  }
+*/
   void visualiza(MensagemChat mensagemChat) async {
     await editmensagemchat(mensagemChat);
   }
 
   void enviarmensagem(String mensagem) async {
+    /*   
+  */
     await createmensagemchat(MensagemChat(
         conteudo: mensagem,
         data: DateTime.now().toString(),
@@ -77,7 +92,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 listMensagemChat = response;
                 return Container();
               } else {
-                return const CircularProgressIndicator();
+                return Container();
               }
             },
           ),

@@ -50,7 +50,7 @@ class _AvisosState extends State<Avisos> {
 
   void daySelected(DateTime day, List events, List holidays) {
     for (int i = 0; i < events.length; i++) {
-      eventos = events;
+      eventos.add(events[i]);
     }
     if (events.isEmpty) {
       eventos.clear();
@@ -80,8 +80,8 @@ class _AvisosState extends State<Avisos> {
             future: listavisoturma(widget.usuario.turmaidAluno),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
-                return Center(
-                  child: Text(snapshot.error.toString()),
+                return const Center(
+                  child: CircularProgressIndicator(),
                 );
               } else if (snapshot.connectionState == ConnectionState.done) {
                 var response = snapshot.data as List<Aviso>;
@@ -120,7 +120,7 @@ class _AvisosState extends State<Avisos> {
                 }
                 return const Padding(padding: EdgeInsets.all(0));
               } else {
-                return const CircularProgressIndicator();
+                return Container();
               }
             },
           ),
@@ -176,15 +176,32 @@ class _AvisosState extends State<Avisos> {
             ),
             calendarController: _controller,
           ),
+          if (eventos.isNotEmpty) ...[
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: const Text(
+                "Detalhes",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+              ),
+            ),
+          ],
           Expanded(
             child: ListView.builder(
               itemCount: eventos.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: const Text('Atenção'),
-                  subtitle: Text(eventos[index].dataEntrega),
+                  title: const Text(
+                    'Atenção',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
+                  subtitle: Text(
+                    eventos[index].dataEntrega,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.normal, fontSize: 18),
+                  ),
                   leading: const Icon(
                     Icons.add_alert,
+                    size: 40,
                     color: Colors.red,
                   ),
                   onTap: () {
@@ -196,34 +213,57 @@ class _AvisosState extends State<Avisos> {
                           title: Text(
                             eventos[index].descricao,
                             textAlign: TextAlign.center,
-                            style: const TextStyle(fontWeight: FontWeight.bold),
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 25),
                           ),
                           content: Column(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              const Padding(
+                                padding: EdgeInsets.all(2),
+                              ),
                               Row(
                                 children: [
                                   const Text(
                                     "Disciplina: ",
                                     style: TextStyle(
                                         color: Colors.red,
-                                        fontWeight: FontWeight.bold),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
                                   ),
-                                  Text(eventos[index].disciplinaNome),
+                                  Text(
+                                    eventos[index].disciplinaNome,
+                                    style: const TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 20),
+                                  ),
                                 ],
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.all(2),
                               ),
                               Row(
                                 children: [
                                   const Text(
                                     "Professor: ",
                                     style: TextStyle(
-                                      color: Colors.red,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
                                   ),
-                                  Text(eventos[index].professorNome),
+                                  Text(
+                                    eventos[index].professorNome,
+                                    style: const TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 20),
+                                  ),
                                 ],
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.all(2),
                               ),
                               Row(
                                 children: const [
@@ -231,18 +271,29 @@ class _AvisosState extends State<Avisos> {
                                     "Observações: ",
                                     style: TextStyle(
                                         color: Colors.red,
-                                        fontWeight: FontWeight.bold),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
                                   ),
                                 ],
                               ),
-                              Text(eventos[index].descricao),
+                              const Padding(
+                                padding: EdgeInsets.all(2),
+                              ),
+                              Text(
+                                eventos[index].descricao,
+                                style: const TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 20),
+                              ),
                             ],
                           ),
                           actions: [
                             TextButton(
                               child: const Text(
                                 'Voltar',
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 20),
                               ),
                               onPressed: () {
                                 Navigator.pop(context);

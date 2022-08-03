@@ -79,8 +79,8 @@ class _FaltasState extends State<Faltas> {
             future: listfaltaaluno(widget.usuario.idaluno),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
-                return Center(
-                  child: Text(snapshot.error.toString()),
+                return const Center(
+                  child: CircularProgressIndicator(),
                 );
               } else if (snapshot.connectionState == ConnectionState.done) {
                 var response = snapshot.data as List<Falta>;
@@ -108,7 +108,7 @@ class _FaltasState extends State<Faltas> {
                 }
                 return const Padding(padding: EdgeInsets.all(0));
               } else {
-                return const CircularProgressIndicator();
+                return Container();
               }
             },
           ),

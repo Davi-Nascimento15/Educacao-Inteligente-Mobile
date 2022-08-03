@@ -1,7 +1,7 @@
 import 'package:educacao_inteligente_mobile/model/falta.dart';
 import 'package:http/http.dart' as http;
 
-String url = 'http://localhost:3000/faltas';
+String url = 'http://192.168.100.251:3000/faltas';
 
 Future<List<Falta>> listfalta() async {
   final response = await http.get(url);

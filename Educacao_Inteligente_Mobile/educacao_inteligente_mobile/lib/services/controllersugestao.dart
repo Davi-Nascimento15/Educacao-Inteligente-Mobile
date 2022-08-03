@@ -1,7 +1,7 @@
 import 'package:educacao_inteligente_mobile/model/sugestao.dart';
 import 'package:http/http.dart' as http;
 
-String url = 'http://localhost:3000/sugestao';
+String url = 'http://192.168.100.251:3000/sugestao';
 
 Future<List<Sugestao>> listsugestao() async {
   final response = await http.get(url);

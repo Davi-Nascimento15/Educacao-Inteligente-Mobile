@@ -45,6 +45,11 @@ class MensagemChat {
   }
 }
 
+int count(String strjson) {
+  final str = json.decode(strjson);
+  return str['visualizou'];
+}
+
 //List user
 List<MensagemChat> mensagemchatFromJson(String strJson) {
   final str = json.decode(strJson);
