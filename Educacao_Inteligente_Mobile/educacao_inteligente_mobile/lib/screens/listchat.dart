@@ -32,9 +32,13 @@ class _ListChatState extends State<ListChat> {
                 return ListTile(
                   leading: const Icon(
                     Icons.person,
+                    size: 40,
                     color: Colors.purple,
                   ),
-                  title: Text(response[index].nome),
+                  title: Text(
+                    response[index].nome,
+                    style: const TextStyle(fontSize: 20),
+                  ),
                   onTap: () {
                     Navigator.push(
                       context,
@@ -49,7 +53,7 @@ class _ListChatState extends State<ListChat> {
               },
             );
           } else {
-            return const CircularProgressIndicator();
+            return Container();
           }
         },
       ),

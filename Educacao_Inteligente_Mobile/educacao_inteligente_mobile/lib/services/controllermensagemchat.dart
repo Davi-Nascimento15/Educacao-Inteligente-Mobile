@@ -1,7 +1,7 @@
 import 'package:educacao_inteligente_mobile/model/mensagemchat.dart';
 import 'package:http/http.dart' as http;
 
-String url = 'http://localhost:3000/mensagemchat';
+String url = 'http://192.168.100.251:3000/mensagemchat';
 
 Future<List<MensagemChat>> listamensagemchat() async {
   final response = await http.get(url);
@@ -12,6 +12,11 @@ Future<List<MensagemChat>> listamensagemchatusuario(
     int destinatario, int remetente) async {
   final response = await http.get('$url/$destinatario/$remetente');
   return mensagemchatFromJson(response.body);
+}
+
+Future<int> contadorMensagemRecebidas(int destinatario, int remetente) async {
+  final response = await http.get('$url/count/$remetente/$destinatario');
+  return count(response.body);
 }
 
 Future<http.Response> createmensagemchat(MensagemChat mensagemChat) async {

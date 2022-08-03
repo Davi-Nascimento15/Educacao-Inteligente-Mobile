@@ -1,7 +1,7 @@
 import 'package:educacao_inteligente_mobile/model/dialetivo.dart';
 import 'package:http/http.dart' as http;
 
-String url = 'http://localhost:3000/dialetivo';
+String url = 'http://192.168.100.251:3000/dialetivo';
 
 Future<List<DiaLetivo>> listdialetivo() async {
   final response = await http.get(url);
