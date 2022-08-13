@@ -1,12 +1,13 @@
 import 'package:educacao_inteligente_mobile/model/usuario.dart';
 import 'package:educacao_inteligente_mobile/screens/aluno.dart';
 import 'package:educacao_inteligente_mobile/screens/anoletivo.dart';
+import 'package:educacao_inteligente_mobile/screens/galeria/listgaleria.dart';
 import 'package:educacao_inteligente_mobile/screens/login.dart';
 import 'package:educacao_inteligente_mobile/screens/noticia/listnoticia.dart';
 import 'package:educacao_inteligente_mobile/screens/sugestao/escolhasugestao.dart';
 import 'package:educacao_inteligente_mobile/screens/listchat.dart';
 import 'package:flutter/material.dart';
-//import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
   final Usuario usuario;
@@ -16,14 +17,11 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
-/*abrirUrl() async {
-  const url = 'http://www.alfenas.mg.gov.br/category/noticias/';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}*/
+Future<void> _launch(url) async {
+  await canLaunchUrl(url)
+      ? await launchUrl(url)
+      : throw 'Could not launch $url';
+}
 
 class _HomeState extends State<Home> {
   @override
@@ -168,7 +166,14 @@ class _HomeState extends State<Home> {
                         style: ElevatedButton.styleFrom(
                             primary: Colors.white,
                             onPrimary: Colors.purple[50]),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ListGaleria(),
+                            ),
+                          );
+                        },
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
                           child: Column(
@@ -304,7 +309,9 @@ class _HomeState extends State<Home> {
                             primary: Colors.white,
                             onPrimary: Colors.purple[50]),
                         onPressed: () {
-                          //abrirUrl();
+                          var url =
+                              Uri.parse('https://www2.educacao.mg.gov.br/');
+                          _launch(url);
                         },
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),

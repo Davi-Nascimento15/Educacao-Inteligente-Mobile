@@ -68,12 +68,12 @@ class _LoginState extends State<Login> {
             alignment: Alignment.center,
             child: Image.asset(
               'images/logo.png',
-              height: 150,
-              width: 300,
+              height: 120,
+              width: 240,
             ),
           ),
           Container(
-            padding: const EdgeInsets.fromLTRB(80, 10, 80, 10),
+            padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
             child: TextFormField(
               keyboardType: TextInputType.number,
               controller: matricula,
@@ -84,7 +84,7 @@ class _LoginState extends State<Login> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.fromLTRB(80, 10, 80, 50),
+            padding: const EdgeInsets.fromLTRB(50, 0, 80, 50),
             child: TextFormField(
               controller: senha,
               decoration: InputDecoration(
@@ -122,7 +122,7 @@ class _LoginState extends State<Login> {
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                   content: Text(
-                    'Matricula ou Senha incorretos...',
+                    'matricula ou senha incorretos...',
                     style: TextStyle(fontSize: 16),
                   ),
                 ));
