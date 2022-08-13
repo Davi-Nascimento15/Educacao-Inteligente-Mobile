@@ -112,7 +112,12 @@ class _AlunoState extends State<Aluno> {
               const Padding(padding: EdgeInsets.all(20)),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: Colors.white, onPrimary: Colors.purple[50]),
+                  primary: Colors.purple,
+                  onPrimary: Colors.purple[50],
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -124,19 +129,19 @@ class _AlunoState extends State<Aluno> {
                   );
                 },
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
                   child: Column(
-                    children: [
+                    children: const [
                       Icon(
                         Icons.warning,
                         size: 40,
-                        color: Colors.purple[600],
+                        color: Colors.white,
                       ),
-                      const Text(
+                      Text(
                         "Provas",
                         style: TextStyle(
                           fontSize: 20,
-                          color: Colors.purple,
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                           // fontFamily: 'Ms Madi')
                         ),
@@ -148,24 +153,28 @@ class _AlunoState extends State<Aluno> {
               const Padding(padding: EdgeInsets.all(20)),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: Colors.white, onPrimary: Colors.purple[50]),
+                  primary: Colors.purple,
+                  onPrimary: Colors.purple[50],
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
                 onPressed: () {},
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
                   child: Column(
-                    children: [
+                    children: const [
                       Icon(
                         Icons.person,
                         size: 40,
-                        color: Colors.purple[600],
+                        color: Colors.white,
                       ),
-                      const Text(
+                      Text(
                         "Boletim",
                         style: TextStyle(
                           fontSize: 20,
-                          color: Colors.purple,
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          // fontFamily: 'Ms Madi')
                         ),
                       ),
                     ],
@@ -175,7 +184,12 @@ class _AlunoState extends State<Aluno> {
               const Padding(padding: EdgeInsets.all(20)),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: Colors.white, onPrimary: Colors.purple[50]),
+                  primary: Colors.purple,
+                  onPrimary: Colors.purple[50],
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -187,19 +201,19 @@ class _AlunoState extends State<Aluno> {
                   );
                 },
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
                   child: Column(
-                    children: [
+                    children: const [
                       Icon(
                         Icons.book_sharp,
                         size: 40,
-                        color: Colors.purple[600],
+                        color: Colors.white,
                       ),
-                      const Text(
+                      Text(
                         "Tarefas",
                         style: TextStyle(
                           fontSize: 20,
-                          color: Colors.purple,
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                           // fontFamily: 'Ms Madi')
                         ),

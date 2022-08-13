@@ -3,7 +3,7 @@ import 'package:educacao_inteligente_mobile/services/connectapi.dart';
 import 'package:http/http.dart' as http;
 
 ConnectApi connectApi = ConnectApi();
-String url = '${connectApi.connect}faltas';
+String url = '${connectApi.connect}/faltas';
 
 Future<List<Falta>> listfalta() async {
   final response = await http.get(url);

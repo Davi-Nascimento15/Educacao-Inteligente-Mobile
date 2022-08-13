@@ -67,12 +67,15 @@ class _CreateSugestaoState extends State<CreateSugestao> {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.fromLTRB(0, 60, 0, 0),
+              padding: EdgeInsets.fromLTRB(0, 80, 0, 0),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 primary: Colors.purple[400],
                 onPrimary: Colors.purple[50],
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
               ),
               onPressed: () async {
                 Sugestao sugestao = Sugestao(
@@ -85,12 +88,12 @@ class _CreateSugestaoState extends State<CreateSugestao> {
                 Navigator.pop(context);
               },
               child: const Padding(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.fromLTRB(25, 10, 25, 10),
                 child: Text(
                   'Salvar',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 25,
                       color: Colors.white,
                       fontWeight: FontWeight.bold),
                 ),

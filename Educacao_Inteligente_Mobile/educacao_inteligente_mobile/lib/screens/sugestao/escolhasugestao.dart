@@ -10,7 +10,7 @@ class EscolhaSugestao extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple[50],
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Sugestão'),
         backgroundColor: Colors.purple[500],
@@ -25,7 +25,12 @@ class EscolhaSugestao extends StatelessWidget {
           children: [
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: Colors.white, onPrimary: Colors.purple[50]),
+                primary: Colors.purple,
+                onPrimary: Colors.purple[50],
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+              ),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -38,19 +43,18 @@ class EscolhaSugestao extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
                 child: Column(
-                  children: [
+                  children: const [
                     Icon(
                       Icons.list,
                       size: 90,
-                      color: Colors.purple[600],
+                      color: Colors.white,
                     ),
-                    const Text(
+                    Text(
                       "Sugestões",
                       style: TextStyle(
                         fontSize: 15,
-                        color: Colors.purple,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        // fontFamily: 'Ms Madi')
                       ),
                     ),
                   ],
@@ -59,7 +63,12 @@ class EscolhaSugestao extends StatelessWidget {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: Colors.white, onPrimary: Colors.purple[50]),
+                primary: Colors.purple,
+                onPrimary: Colors.purple[50],
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+              ),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -70,18 +79,18 @@ class EscolhaSugestao extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
                 child: Column(
-                  children: [
+                  children: const [
                     Icon(
                       Icons.my_library_books_outlined,
                       size: 90,
-                      color: Colors.purple[600],
+                      color: Colors.white,
                     ),
-                    const Center(
+                    Center(
                       child: Text(
                         "Minhas Sugestões",
                         style: TextStyle(
                           fontSize: 15,
-                          color: Colors.purple,
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                           // fontFamily: 'Ms Madi')
                         ),
