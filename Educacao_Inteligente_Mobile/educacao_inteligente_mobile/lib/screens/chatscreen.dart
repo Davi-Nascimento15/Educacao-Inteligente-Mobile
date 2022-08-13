@@ -29,40 +29,27 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   void timerStart() {
-    timer = Timer.periodic(const Duration(seconds: 5), (context) {
+    timer = Timer.periodic(const Duration(seconds: 2), (context) {
       setState(() {
         controller.jumpTo(controller.position.maxScrollExtent);
       });
     });
   }
 
-/*
-  void atualiza() {
-    if (nummensagem == 0 || listMensagemChat.length > nummensagem) {
-      Provider.of<NotificationService>(context, listen: false)
-          .showLocalNotification(CustomNotification(
-              id: listMensagemChat.length,
-              title: widget.destinatario.nome,
-              body: listMensagemChat[listMensagemChat.length].conteudo,
-              payload: null));
-      nummensagem = listMensagemChat.length;
-    }
-  }
-*/
   void visualiza(MensagemChat mensagemChat) async {
-    await editmensagemchat(mensagemChat);
+    //   await editmensagemchat(mensagemChat);
   }
 
   void enviarmensagem(String mensagem) async {
-    /*   
-  */
-    await createmensagemchat(MensagemChat(
+    MensagemChat mensagemChat = MensagemChat(
         conteudo: mensagem,
         data: DateTime.now().toString(),
         hora: '${DateTime.now().hour.toString()}:${DateTime.now().minute}',
         visualizada: "0",
         destinatario_idmatricula: widget.destinatario.idmatricula,
-        remetente_idmatricula: widget.usuario.idmatricula));
+        remetente_idmatricula: widget.usuario.idmatricula);
+    listMensagemChat.add(mensagemChat);
+    await createmensagemchat(mensagemChat);
   }
 
   @override
@@ -102,9 +89,6 @@ class _ChatScreenState extends State<ChatScreen> {
               reverse: false,
               itemCount: listMensagemChat.length,
               itemBuilder: (context, index) {
-                if (listMensagemChat[index].visualizada.toString() == '0') {
-                  visualiza(listMensagemChat[index]);
-                }
                 return message(
                     listMensagemChat[index],
                     widget.usuario.idmatricula,
@@ -129,7 +113,9 @@ class _ChatScreenState extends State<ChatScreen> {
                     onPressed: () {
                       enviarmensagem(mensagem.text);
                       mensagem.text = "";
-                      setState(() {});
+                      setState(() {
+                        controller.jumpTo(controller.position.maxScrollExtent);
+                      });
                     },
                     icon: const Icon(Icons.send, color: Colors.purple))
               ],
