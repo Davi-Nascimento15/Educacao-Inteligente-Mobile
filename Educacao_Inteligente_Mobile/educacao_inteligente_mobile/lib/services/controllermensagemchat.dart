@@ -1,7 +1,9 @@
 import 'package:educacao_inteligente_mobile/model/mensagemchat.dart';
+import 'package:educacao_inteligente_mobile/services/connectapi.dart';
 import 'package:http/http.dart' as http;
 
-String url = 'http://192.168.100.251:3000/mensagemchat';
+ConnectApi connectApi = ConnectApi();
+String url = '${connectApi.connect}/mensagemchat';
 
 Future<List<MensagemChat>> listamensagemchat() async {
   final response = await http.get(url);
@@ -26,11 +28,10 @@ Future<http.Response> createmensagemchat(MensagemChat mensagemChat) async {
   return response;
 }
 
-Future<http.Response> editmensagemchat(MensagemChat mensagemChat) async {
-  final response = await http.put(
-    '$url/${mensagemChat.idchat}',
+Future<http.Response> editmensagemchat(int usuario, int destinatario) async {
+  final response = await http.patch(
+    '$url/$usuario/$destinatario',
     headers: {'content-type': 'application/json'},
-    body: mensagemchatToJson(mensagemChat),
   );
   return response;
 }

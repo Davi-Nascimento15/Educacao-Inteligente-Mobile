@@ -108,6 +108,9 @@ class _LoginState extends State<Login> {
             style: ElevatedButton.styleFrom(
               primary: Colors.purple,
               onPrimary: Colors.purple[50],
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.0),
+              ),
             ),
             onPressed: () {
               if (_validacao(matricula.text, senha.text)) {
@@ -129,12 +132,12 @@ class _LoginState extends State<Login> {
               }
             },
             child: const Padding(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.fromLTRB(25, 15, 25, 15),
               child: Text(
                 'Entrar',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 25,
                     color: Colors.white,
                     fontWeight: FontWeight.bold),
               ),

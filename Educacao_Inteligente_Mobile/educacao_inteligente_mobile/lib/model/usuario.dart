@@ -11,12 +11,14 @@ class Usuario {
   String nomeAluno;
   int turnoAluno;
   int turmaidAluno;
+  int escolaID;
 
   Usuario(
       {this.idmatricula,
       this.nome,
       this.senha,
       this.tipo,
+      this.escolaID,
       this.idaluno,
       this.anoAluno,
       this.matriculaAluno,
@@ -30,7 +32,8 @@ class Usuario {
         idmatricula: json['idmatricula'],
         nome: json['nome'],
         senha: json['senha'],
-        tipo: json['tipo']);
+        tipo: json['tipo'],
+        escolaID: json['EscolaID']);
   }
 
   //Json > Usuario
@@ -40,6 +43,7 @@ class Usuario {
         nome: json['nomeUsuario'],
         senha: json['senhaUsuario'],
         tipo: json['tipoUsuario'],
+        escolaID: json['EscolaID'],
         idaluno: json['idaluno'],
         anoAluno: json['ano'],
         matriculaAluno: json['matricula'],
@@ -50,7 +54,12 @@ class Usuario {
 
   //Usuario > Json
   Map<String, dynamic> toJson() {
-    return {"nome": nome, "senha": senha, "tipo": tipo};
+    return {
+      "nome": nome,
+      "senha": senha,
+      "tipo": tipo,
+      "escola_idescola": escolaID
+    };
   }
 }
 

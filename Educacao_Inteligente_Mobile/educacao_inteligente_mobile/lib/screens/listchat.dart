@@ -1,17 +1,23 @@
 import 'package:educacao_inteligente_mobile/model/usuario.dart';
-import 'package:educacao_inteligente_mobile/screens/chatscreen.dart';
+import 'package:educacao_inteligente_mobile/services/controllermensagemchat.dart';
 import 'package:educacao_inteligente_mobile/services/controllerusuario.dart';
 import 'package:flutter/material.dart';
 
 class ListChat extends StatefulWidget {
   final Usuario usuario;
-  const ListChat({Key key, this.usuario}) : super(key: key);
+  List<int> aux = [];
+  ListChat({Key key, this.usuario}) : super(key: key);
 
   @override
   State<ListChat> createState() => _ListChatState();
 }
 
 class _ListChatState extends State<ListChat> {
+  Future<void> Contar(int remetente) async {
+    widget.aux.add(
+        await contadorMensagemRecebidas(remetente, widget.usuario.idmatricula));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,25 +35,30 @@ class _ListChatState extends State<ListChat> {
             return ListView.builder(
               itemCount: response.length,
               itemBuilder: (context, index) {
+                Contar(response[index].idmatricula);
                 return ListTile(
                   leading: const Icon(
                     Icons.person,
                     size: 40,
                     color: Colors.purple,
                   ),
+                  //trailing: widget.aux.isNotEmpty : Text("")?Text(""),
                   title: Text(
                     response[index].nome,
                     style: const TextStyle(fontSize: 20),
                   ),
-                  onTap: () {
-                    Navigator.push(
+                  onTap: () async {
+                    /*
+                    await Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => ChatScreen(
                             usuario: widget.usuario,
                             destinatario: response[index]),
                       ),
-                    );
+                    );*/
+                    await editmensagemchat(widget.usuario.idmatricula,
+                        response[index].idmatricula);
                   },
                 );
               },
