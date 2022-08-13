@@ -1,4 +1,3 @@
-// ignore_for_file: non_constant_identifier_names
 import 'dart:convert';
 
 class Sugestao {
@@ -33,7 +32,7 @@ class Sugestao {
       "titulo": titulo,
       "descricao": descricao,
       "usuario_idmatricula": usuario_idmatricula,
-      "escola_idEscola": escola_idEscola,
+      "escola_idEscola": escola_idEscola
     };
   }
 }

@@ -82,7 +82,6 @@ class _CreateSugestaoState extends State<CreateSugestao> {
                   usuario_idmatricula: widget.usuario.idmatricula,
                   escola_idEscola: widget.usuario.escolaID,
                 );
-
                 await createsugestao(sugestao);
                 Navigator.pop(context);
               },

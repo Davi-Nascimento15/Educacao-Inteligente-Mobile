@@ -27,7 +27,6 @@ class _ListSugestaoState extends State<ListSugestao> {
             );
           } else if (snapshot.connectionState == ConnectionState.done) {
             var response = snapshot.data as List<Sugestao>;
-            print(response[0]);
             return ListView.builder(
               itemCount: response.length,
               itemBuilder: (context, index) {

@@ -33,7 +33,7 @@ class Usuario {
         nome: json['nome'],
         senha: json['senha'],
         tipo: json['tipo'],
-        escolaID: json['EscolaID']);
+        escolaID: json['escolaID']);
   }
 
   //Json > Usuario
@@ -43,7 +43,7 @@ class Usuario {
         nome: json['nomeUsuario'],
         senha: json['senhaUsuario'],
         tipo: json['tipoUsuario'],
-        escolaID: json['EscolaID'],
+        escolaID: json['escolaID'],
         idaluno: json['idaluno'],
         anoAluno: json['ano'],
         matriculaAluno: json['matricula'],

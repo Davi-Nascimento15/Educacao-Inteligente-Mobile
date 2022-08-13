@@ -55,7 +55,8 @@ class _LoginState extends State<Login> {
                         matriculaAluno: response[i].matriculaAluno,
                         anoAluno: response[i].anoAluno,
                         turmaidAluno: response[i].turmaidAluno,
-                        turnoAluno: response[i].turnoAluno);
+                        turnoAluno: response[i].turnoAluno,
+                        escolaID: response[i].escolaID);
                     usuarios.add(usuario);
                   }
                   return Container();
