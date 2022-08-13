@@ -31,7 +31,7 @@ class _ListNoticiaState extends State<ListNoticia> {
         backgroundColor: Colors.purple,
         onRefresh: _refresh,
         child: FutureBuilder(
-          future: listnoticia(),
+          future: listnoticiaescola(widget.usuario.escolaID),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
               return Center(

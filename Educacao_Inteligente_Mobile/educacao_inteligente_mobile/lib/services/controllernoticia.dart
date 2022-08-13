@@ -9,3 +9,8 @@ Future<List<Noticia>> listnoticia() async {
   final response = await http.get(url);
   return noticiaFromJson(response.body);
 }
+
+Future<List<Noticia>> listnoticiaescola(int id) async {
+  final response = await http.get('$url/escola/$id');
+  return noticiaFromJson(response.body);
+}

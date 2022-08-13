@@ -17,7 +17,6 @@ Future<List<Sugestao>> listsugestaousuario(int id) async {
 
 Future<List<Sugestao>> listsugestaoescola(int id) async {
   final response = await http.get('$url/escola/$id');
-  print(response.body);
   return sugestaoFromJson(response.body);
 }
 

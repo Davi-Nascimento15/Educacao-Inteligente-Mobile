@@ -6,13 +6,14 @@ class Noticia {
   String titulo;
   String descricao;
   String dataGeracao;
+  int escola_idEscola;
 
-  Noticia({
-    this.idNoticia,
-    this.titulo,
-    this.descricao,
-    this.dataGeracao,
-  });
+  Noticia(
+      {this.idNoticia,
+      this.titulo,
+      this.descricao,
+      this.dataGeracao,
+      this.escola_idEscola});
 
   Widget render() {
     return Card(
@@ -72,6 +73,7 @@ class Noticia {
       titulo: json['titulo'],
       descricao: json['descricao'],
       dataGeracao: json['dataGeracao'],
+      escola_idEscola: json['escola_idEscola'],
     );
   }
 
@@ -82,6 +84,7 @@ class Noticia {
       "titulo": titulo,
       "descricao": descricao,
       "dataGeracao": dataGeracao,
+      "escola_idEscola": escola_idEscola
     };
   }
 }
