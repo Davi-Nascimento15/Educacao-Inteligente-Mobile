@@ -29,7 +29,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple[50],
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
         child: Column(
@@ -94,8 +94,12 @@ class _HomeState extends State<Home> {
                     children: [
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            primary: Colors.white,
-                            onPrimary: Colors.purple[50]),
+                          primary: Colors.purple,
+                          onPrimary: Colors.purple[50],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                        ),
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -109,17 +113,17 @@ class _HomeState extends State<Home> {
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
                           child: Column(
-                            children: [
+                            children: const [
                               Icon(
                                 Icons.calendar_today_rounded,
                                 size: 90,
-                                color: Colors.purple[600],
+                                color: Colors.white,
                               ),
-                              const Text(
+                              Text(
                                 "Calendário",
                                 style: TextStyle(
                                   fontSize: 20,
-                                  color: Colors.purple,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                   // fontFamily: 'Ms Madi')
                                 ),
@@ -130,8 +134,12 @@ class _HomeState extends State<Home> {
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            primary: Colors.white,
-                            onPrimary: Colors.purple[50]),
+                          primary: Colors.purple,
+                          onPrimary: Colors.purple[50],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                        ),
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -145,19 +153,18 @@ class _HomeState extends State<Home> {
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                           child: Column(
-                            children: [
+                            children: const [
                               Icon(
                                 Icons.chat,
                                 size: 90,
-                                color: Colors.purple[600],
+                                color: Colors.white,
                               ),
-                              const Text(
+                              Text(
                                 "Chat",
                                 style: TextStyle(
                                   fontSize: 20,
-                                  color: Colors.purple,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.bold,
-                                  // fontFamily: 'Ms Madi')
                                 ),
                               ),
                             ],
@@ -166,25 +173,28 @@ class _HomeState extends State<Home> {
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            primary: Colors.white,
-                            onPrimary: Colors.purple[50]),
+                          primary: Colors.purple,
+                          onPrimary: Colors.purple[50],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                        ),
                         onPressed: () {},
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
                           child: Column(
-                            children: [
+                            children: const [
                               Icon(
                                 Icons.photo_camera_back_rounded,
                                 size: 90,
-                                color: Colors.purple[600],
+                                color: Colors.white,
                               ),
-                              const Text(
+                              Text(
                                 "Galeria",
                                 style: TextStyle(
                                   fontSize: 20,
-                                  color: Colors.purple,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.bold,
-                                  // fontFamily: 'Ms Madi')
                                 ),
                               ),
                             ],
@@ -193,8 +203,12 @@ class _HomeState extends State<Home> {
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            primary: Colors.white,
-                            onPrimary: Colors.purple[50]),
+                          primary: Colors.purple,
+                          onPrimary: Colors.purple[50],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                        ),
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -208,17 +222,17 @@ class _HomeState extends State<Home> {
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
                           child: Column(
-                            children: [
+                            children: const [
                               Icon(
                                 Icons.person,
                                 size: 90,
-                                color: Colors.purple[600],
+                                color: Colors.white,
                               ),
-                              const Text(
+                              Text(
                                 "Aluno",
                                 style: TextStyle(
                                   fontSize: 20,
-                                  color: Colors.purple,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                   // fontFamily: 'Ms Madi')
                                 ),
@@ -229,8 +243,12 @@ class _HomeState extends State<Home> {
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            primary: Colors.white,
-                            onPrimary: Colors.purple[50]),
+                          primary: Colors.purple,
+                          onPrimary: Colors.purple[50],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                        ),
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -244,17 +262,17 @@ class _HomeState extends State<Home> {
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
                           child: Column(
-                            children: [
+                            children: const [
                               Icon(
                                 Icons.feed,
                                 size: 90,
-                                color: Colors.purple[600],
+                                color: Colors.white,
                               ),
-                              const Text(
+                              Text(
                                 "Notícias",
                                 style: TextStyle(
                                   fontSize: 20,
-                                  color: Colors.purple,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                   // fontFamily: 'Ms Madi')
                                 ),
@@ -265,8 +283,12 @@ class _HomeState extends State<Home> {
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            primary: Colors.white,
-                            onPrimary: Colors.purple[50]),
+                          primary: Colors.purple,
+                          onPrimary: Colors.purple[50],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                        ),
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -280,17 +302,17 @@ class _HomeState extends State<Home> {
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
                           child: Column(
-                            children: [
+                            children: const [
                               Icon(
                                 Icons.question_answer,
                                 size: 90,
-                                color: Colors.purple[600],
+                                color: Colors.white,
                               ),
-                              const Text(
+                              Text(
                                 "Sugestões",
                                 style: TextStyle(
                                   fontSize: 20,
-                                  color: Colors.purple,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                   // fontFamily: 'Ms Madi')
                                 ),
@@ -301,25 +323,29 @@ class _HomeState extends State<Home> {
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            primary: Colors.white,
-                            onPrimary: Colors.purple[50]),
+                          primary: Colors.purple,
+                          onPrimary: Colors.purple[50],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                        ),
                         onPressed: () {
                           //abrirUrl();
                         },
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
                           child: Column(
-                            children: [
+                            children: const [
                               Icon(
                                 Icons.web,
                                 size: 90,
-                                color: Colors.purple[600],
+                                color: Colors.white,
                               ),
-                              const Text(
+                              Text(
                                 "Portal",
                                 style: TextStyle(
                                   fontSize: 20,
-                                  color: Colors.purple,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                   // fontFamily: 'Ms Madi')
                                 ),
