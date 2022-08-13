@@ -1,8 +1,10 @@
 import 'package:educacao_inteligente_mobile/model/usuario.dart';
+import 'package:educacao_inteligente_mobile/services/connectapi.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:http/http.dart' as http;
 
-String url = 'http://192.168.100.251:3000/usuarios';
+ConnectApi connectApi = ConnectApi();
+String url = '${connectApi.connect}/usuarios';
 
 Future<List<Usuario>> listUser() async {
   final response = await http.get(url);
