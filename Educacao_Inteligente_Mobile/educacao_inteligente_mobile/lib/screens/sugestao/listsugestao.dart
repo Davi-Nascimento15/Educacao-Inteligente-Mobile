@@ -13,32 +13,13 @@ class ListSugestao extends StatefulWidget {
 }
 
 class _ListSugestaoState extends State<ListSugestao> {
-//bool _isFavorited = true;
-  // int _favoriteCount = 0;
-
-  //void _toggleFavorite() {
-  //  setState(() {
-  //   if (_isFavorited == true) {
-  //     _favoriteCount -= 1;
-  //     _isFavorited = false;
-  //   } else {
-  //     _favoriteCount += 1;
-  //   _isFavorited = true;
-  //    }
-  // });
-  // }
-
-  showAlertDialog(BuildContext context) {
-    // set up the button
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.purple[500], title: const Text('Sugestões')),
       body: FutureBuilder(
-        future: listsugestao(),
+        future: listsugestaoescola(widget.usuario.escolaID),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return Center(
@@ -46,6 +27,7 @@ class _ListSugestaoState extends State<ListSugestao> {
             );
           } else if (snapshot.connectionState == ConnectionState.done) {
             var response = snapshot.data as List<Sugestao>;
+            print(response[0]);
             return ListView.builder(
               itemCount: response.length,
               itemBuilder: (context, index) {
@@ -60,23 +42,6 @@ class _ListSugestaoState extends State<ListSugestao> {
                   child: ListTile(
                     title: Text(response[index].usuario_idmatricula.toString()),
                     subtitle: Text(response[index].titulo),
-                    //trailing: Wrap(
-                    //spacing: 12, // space between two icons
-                    //children: [
-                    //Text('$_favoriteCount'),
-                    //IconButton(
-                    // padding: const EdgeInsets.all(0),
-                    //alignment: Alignment.centerRight,
-                    //icon: (_isFavorited
-                    //   ? const Icon(Icons.star) //? = IF
-                    //  : const Icon(Icons.star_border)), //: ELSE
-                    //color: Colors.red,
-                    //onPressed: () {
-                    // _toggleFavorite();
-                    //},
-                    //),
-                    //],
-                    //),
                     onTap: () {
                       showDialog(
                         context: context,

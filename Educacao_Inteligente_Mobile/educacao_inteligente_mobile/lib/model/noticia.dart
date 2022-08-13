@@ -25,10 +25,13 @@ class Noticia {
   Widget renderContent() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
+      children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(titulo),
+          child: Text(
+            titulo,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          ),
         ),
         renderContent2()
       ],

@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:educacao_inteligente_mobile/model/usuario.dart';
 import 'package:educacao_inteligente_mobile/services/controllermensagemchat.dart';
 import 'package:educacao_inteligente_mobile/services/controllerusuario.dart';
@@ -13,6 +15,7 @@ class ListChat extends StatefulWidget {
 }
 
 class _ListChatState extends State<ListChat> {
+  // ignore: non_constant_identifier_names
   Future<void> Contar(int remetente) async {
     widget.aux.add(
         await contadorMensagemRecebidas(remetente, widget.usuario.idmatricula));

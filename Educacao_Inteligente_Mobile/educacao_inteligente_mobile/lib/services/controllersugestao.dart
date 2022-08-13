@@ -15,6 +15,11 @@ Future<List<Sugestao>> listsugestaousuario(int id) async {
   return sugestaoFromJson(response.body);
 }
 
+Future<List<Sugestao>> listsugestaoescola(int id) async {
+  final response = await http.get('$url/escola/$id');
+  return sugestaoFromJson(response.body);
+}
+
 Future<http.Response> createsugestao(Sugestao sugestao) async {
   final response = await http.post(url,
       headers: {"content-type": "application/json"},

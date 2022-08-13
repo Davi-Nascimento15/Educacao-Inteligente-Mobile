@@ -5,24 +5,25 @@ class Sugestao {
   String idSugestao;
   String titulo;
   String descricao;
-  int curtidas;
   int usuario_idmatricula;
+  int escola_idEscola;
 
   Sugestao(
       {this.idSugestao,
       this.titulo,
       this.descricao,
-      this.curtidas,
-      this.usuario_idmatricula});
+      this.usuario_idmatricula,
+      this.escola_idEscola});
 
   //Json > Sugestao
   factory Sugestao.fromJson(Map<String, dynamic> json) {
     return Sugestao(
-        idSugestao: json['idSugestao'],
-        titulo: json['titulo'],
-        descricao: json['descricao'],
-        curtidas: json['curtidas'],
-        usuario_idmatricula: json['usuario_idmatricula']);
+      idSugestao: json['idSugestao'],
+      titulo: json['titulo'],
+      descricao: json['descricao'],
+      usuario_idmatricula: json['usuario_idmatricula'],
+      escola_idEscola: json['escola_idEscola'],
+    );
   }
 
   //Sugestao > Json
@@ -31,8 +32,8 @@ class Sugestao {
       "idSugestao": idSugestao,
       "titulo": titulo,
       "descricao": descricao,
-      "curtidas": curtidas,
-      "usuario_idmatricula": usuario_idmatricula
+      "usuario_idmatricula": usuario_idmatricula,
+      "escola_idEscola": escola_idEscola,
     };
   }
 }

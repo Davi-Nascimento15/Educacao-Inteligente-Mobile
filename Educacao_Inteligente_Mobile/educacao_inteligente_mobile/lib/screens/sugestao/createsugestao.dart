@@ -14,14 +14,12 @@ class CreateSugestao extends StatefulWidget {
 class _CreateSugestaoState extends State<CreateSugestao> {
   TextEditingController controllertitulo;
   TextEditingController controllerdescricao;
-  TextEditingController controllerlike;
 
   //clear
   @override
   void dispose() {
     controllertitulo.dispose();
     controllerdescricao.dispose();
-    controllerlike.dispose();
     super.dispose();
   }
 
@@ -31,7 +29,6 @@ class _CreateSugestaoState extends State<CreateSugestao> {
     super.initState();
     controllertitulo = TextEditingController();
     controllerdescricao = TextEditingController();
-    controllerlike = TextEditingController();
   }
 
   @override
@@ -79,11 +76,13 @@ class _CreateSugestaoState extends State<CreateSugestao> {
               ),
               onPressed: () async {
                 Sugestao sugestao = Sugestao(
-                    idSugestao: "1",
-                    titulo: controllertitulo.text,
-                    descricao: controllerdescricao.text,
-                    curtidas: 3,
-                    usuario_idmatricula: widget.usuario.idmatricula);
+                  idSugestao: "1",
+                  titulo: controllertitulo.text,
+                  descricao: controllerdescricao.text,
+                  usuario_idmatricula: widget.usuario.idmatricula,
+                  escola_idEscola: widget.usuario.escolaID,
+                );
+
                 await createsugestao(sugestao);
                 Navigator.pop(context);
               },

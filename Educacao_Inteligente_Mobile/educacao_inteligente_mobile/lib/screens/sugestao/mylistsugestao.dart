@@ -54,7 +54,6 @@ class _MyListSugestaoState extends State<MyListSugestao> {
                                 idSugestao: sugestaoItem.idSugestao,
                                 titulo: sugestaoItem.titulo,
                                 descricao: sugestaoItem.descricao,
-                                curtidas: 3,
                                 usuario_idmatricula:
                                     sugestaoItem.usuario_idmatricula);
                             await Navigator.push(

@@ -15,14 +15,12 @@ class EditSugestao extends StatefulWidget {
 class _EditSugestaoState extends State<EditSugestao> {
   TextEditingController controllertitulo = TextEditingController();
   TextEditingController controllerdescricao = TextEditingController();
-  TextEditingController controllerlike = TextEditingController();
 
   //clear
   @override
   void dispose() {
     controllertitulo.dispose();
     controllerdescricao.dispose();
-    controllerlike.dispose();
     super.dispose();
   }
 
@@ -79,7 +77,6 @@ class _EditSugestaoState extends State<EditSugestao> {
                     idSugestao: widget.sugestao.idSugestao,
                     titulo: controllertitulo.text,
                     descricao: controllerdescricao.text,
-                    curtidas: 3,
                     usuario_idmatricula: widget.sugestao.usuario_idmatricula);
                 await editsugestao(sugestao);
                 Navigator.pop(context);
