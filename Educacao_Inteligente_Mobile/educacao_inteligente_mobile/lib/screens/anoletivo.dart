@@ -79,7 +79,7 @@ class _AnoLetivoState extends State<AnoLetivo> {
       body: Column(
         children: [
           FutureBuilder(
-            future: listdialetivo(),
+            future: listadialetivoescola(widget.usuario.escolaID),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
                 return const Center(

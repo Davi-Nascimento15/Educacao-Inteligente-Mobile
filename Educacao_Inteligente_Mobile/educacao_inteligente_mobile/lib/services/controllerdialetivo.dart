@@ -11,7 +11,7 @@ Future<List<DiaLetivo>> listdialetivo() async {
 }
 
 Future<List<DiaLetivo>> listadialetivoescola(int id) async {
-  final response = await http.get('$url/$id');
+  final response = await http.get('$url/ano/$id');
   return diaLetivoFromJson(response.body);
 }
 
