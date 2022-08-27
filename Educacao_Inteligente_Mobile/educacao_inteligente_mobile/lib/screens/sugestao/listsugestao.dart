@@ -28,42 +28,52 @@ class _ListSugestaoState extends State<ListSugestao> {
           } else if (snapshot.connectionState == ConnectionState.done) {
             var response = snapshot.data as List<Sugestao>;
             return ListView.builder(
-              itemCount: response.length,
-              itemBuilder: (context, index) {
-                return Card(
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                      color: Theme.of(context).colorScheme.onSurface,
+                itemCount: response.length,
+                itemBuilder: (context, index) {
+                  return Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(
+                        color: Theme.of(context).colorScheme.onSurface,
+                      ),
+                      borderRadius: const BorderRadius.all(Radius.circular(12)),
                     ),
-                    borderRadius: const BorderRadius.all(Radius.circular(12)),
-                  ),
-                  child: ListTile(
-                    title: Text(response[index].usuario_idmatricula.toString()),
-                    subtitle: Text(response[index].titulo),
-                    onTap: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            title: Text(response[index].titulo),
-                            content: Text(response[index].descricao),
-                            actions: [
-                              TextButton(
-                                child: const Text("OK"),
-                                onPressed: () {
-                                  Navigator.pop(context);
+                    child: ListTile(
+                      title: Text(response[index].titulo),
+                      subtitle: const Text('...'),
+                      trailing: Wrap(
+                        spacing: 12, // space between two icons
+                        children: [
+                          IconButton(
+                            icon: const Icon(
+                              Icons.feed_sharp,
+                              color: Colors.purple,
+                            ),
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    title: Text(response[index].titulo),
+                                    content: Text(response[index].descricao),
+                                    actions: [
+                                      TextButton(
+                                        child: const Text("OK"),
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                      ),
+                                    ],
+                                  );
                                 },
-                              ),
-                            ],
-                          );
-                        },
-                      ); //alert dialog,
-                    },
-                  ),
-                );
-              },
-            );
+                              ); //alert dialog,
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                });
           } else {
             return const CircularProgressIndicator();
           }
