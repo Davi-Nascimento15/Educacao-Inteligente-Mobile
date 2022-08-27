@@ -1,6 +1,7 @@
 import 'package:educacao_inteligente_mobile/model/usuario.dart';
 import 'package:educacao_inteligente_mobile/screens/aviso.dart';
 import 'package:educacao_inteligente_mobile/screens/faltas.dart';
+import 'package:educacao_inteligente_mobile/screens/notascreen.dart';
 import 'package:educacao_inteligente_mobile/screens/prova.dart';
 import 'package:educacao_inteligente_mobile/screens/tarefa.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class _AlunoState extends State<Aluno> {
         title: Text(widget.usuario.nomeAluno),
         backgroundColor: Colors.purple,
       ),
-      backgroundColor: Colors.purple[50],
+      backgroundColor: Colors.white,
       body: Container(
         padding: const EdgeInsets.fromLTRB(40, 10, 40, 0),
         child: Center(
@@ -159,7 +160,16 @@ class _AlunoState extends State<Aluno> {
                     borderRadius: BorderRadius.circular(30.0),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Boletim(
+                        usuario: widget.usuario,
+                      ),
+                    ),
+                  );
+                },
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
                   child: Column(
