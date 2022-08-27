@@ -30,15 +30,11 @@ class _ChatScreenState extends State<ChatScreen> {
 
   void timerStart() {
     timer = Timer.periodic(const Duration(seconds: 2), (context) {
-      setState(() {
-        controller.jumpTo(controller.position.maxScrollExtent);
-      });
+      setState(() {});
     });
   }
 
-  void visualiza(MensagemChat mensagemChat) async {
-    //   await editmensagemchat(mensagemChat);
-  }
+  void visualiza(MensagemChat mensagemChat) async {}
 
   void enviarmensagem(String mensagem) async {
     MensagemChat mensagemChat = MensagemChat(
@@ -50,6 +46,7 @@ class _ChatScreenState extends State<ChatScreen> {
         remetente_idmatricula: widget.usuario.idmatricula);
     listMensagemChat.add(mensagemChat);
     await createmensagemchat(mensagemChat);
+    setState(() {});
   }
 
   @override
@@ -83,6 +80,12 @@ class _ChatScreenState extends State<ChatScreen> {
               }
             },
           ),
+          if (listMensagemChat.isNotEmpty) ...[
+            FutureBuilder(builder: (context, snapshot) {
+              controller.jumpTo(controller.position.maxScrollExtent);
+              return Container();
+            }),
+          ],
           Expanded(
             child: ListView.builder(
               controller: controller,
@@ -104,6 +107,9 @@ class _ChatScreenState extends State<ChatScreen> {
               children: [
                 Expanded(
                   child: TextFormField(
+                    onTap: () {
+                      controller.jumpTo(controller.position.maxScrollExtent);
+                    },
                     controller: mensagem,
                     decoration: const InputDecoration(
                         hintText: "Escreva a mensagem..."),
@@ -113,9 +119,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     onPressed: () {
                       enviarmensagem(mensagem.text);
                       mensagem.text = "";
-                      setState(() {
-                        controller.jumpTo(controller.position.maxScrollExtent);
-                      });
+                      setState(() {});
                     },
                     icon: const Icon(Icons.send, color: Colors.purple))
               ],

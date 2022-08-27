@@ -12,8 +12,27 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key key}) : super(key: key);
+
+/* 
+  int i = 0;
+  Timer timer;
+  void timerStart(var context) {
+    timer = Timer.periodic(const Duration(seconds: 5), (context) {});
+    Provider.of<NotificationService>(context, listen: false)
+        .showLocalNotification(
+      CustomNotification(
+        id: i,
+        title: "teste",
+        body: "teste",
+        payload: "/",
+      ),
+    );
+    i++;
+  }
+*/
   @override
   Widget build(BuildContext context) {
+    //timerStart(context);
     return const MaterialApp(
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,

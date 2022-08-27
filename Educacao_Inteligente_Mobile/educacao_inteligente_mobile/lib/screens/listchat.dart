@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:educacao_inteligente_mobile/model/usuario.dart';
+import 'package:educacao_inteligente_mobile/screens/chatscreen.dart';
 import 'package:educacao_inteligente_mobile/services/controllermensagemchat.dart';
 import 'package:educacao_inteligente_mobile/services/controllerusuario.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +52,6 @@ class _ListChatState extends State<ListChat> {
                     style: const TextStyle(fontSize: 20),
                   ),
                   onTap: () async {
-                    /*
                     await Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -59,7 +59,7 @@ class _ListChatState extends State<ListChat> {
                             usuario: widget.usuario,
                             destinatario: response[index]),
                       ),
-                    );*/
+                    );
                     await editmensagemchat(widget.usuario.idmatricula,
                         response[index].idmatricula);
                   },
