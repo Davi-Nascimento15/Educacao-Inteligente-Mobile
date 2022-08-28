@@ -33,118 +33,134 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          FutureBuilder(
-              future: listUser(),
-              builder: (context, snapshot) {
-                if (snapshot.hasError) {
-                  return Center(
-                    child: Text(snapshot.error.toString()),
-                  );
-                } else if (snapshot.connectionState == ConnectionState.done) {
-                  var response = snapshot.data as List<Usuario>;
-                  for (int i = 0; i < response.length; i++) {
-                    Usuario usuario = Usuario(
-                        idmatricula: response[i].idmatricula,
-                        nome: response[i].nome,
-                        senha: response[i].senha,
-                        tipo: response[i].tipo,
-                        idaluno: response[i].idaluno,
-                        nomeAluno: response[i].nomeAluno,
-                        matriculaAluno: response[i].matriculaAluno,
-                        anoAluno: response[i].anoAluno,
-                        turmaidAluno: response[i].turmaidAluno,
-                        turnoAluno: response[i].turnoAluno,
-                        escolaID: response[i].escolaID);
-                    usuarios.add(usuario);
-                  }
-                  return Container();
-                } else {
-                  return Container();
-                }
-              }),
-          Container(
-            padding: const EdgeInsets.all(80),
-            alignment: Alignment.center,
-            child: Image.asset(
-              'images/logo.png',
-              height: 120,
-              width: 240,
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
-            child: TextFormField(
-              keyboardType: TextInputType.number,
-              controller: matricula,
-              decoration: const InputDecoration(
-                labelText: 'Matricula',
-                hintText: '...',
-              ),
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.fromLTRB(50, 0, 80, 50),
-            child: TextFormField(
-              controller: senha,
-              decoration: InputDecoration(
-                labelText: 'Senha',
-                hintText: '...',
-                suffixIcon: GestureDetector(
-                  child: Icon(
-                      exibe == false ? Icons.visibility_off : Icons.visibility,
-                      color: Colors.purple),
-                  onTap: () {
-                    setState(() {
-                      exibe = !exibe;
-                    });
-                  },
+      body: LayoutBuilder(
+        builder: ((context, constraints) {
+          return Column(
+            children: [
+              FutureBuilder(
+                  future: listUser(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasError) {
+                      return Center(
+                        child: Text(snapshot.error.toString()),
+                      );
+                    } else if (snapshot.connectionState ==
+                        ConnectionState.done) {
+                      var response = snapshot.data as List<Usuario>;
+                      for (int i = 0; i < response.length; i++) {
+                        Usuario usuario = Usuario(
+                            idmatricula: response[i].idmatricula,
+                            nome: response[i].nome,
+                            senha: response[i].senha,
+                            tipo: response[i].tipo,
+                            idaluno: response[i].idaluno,
+                            nomeAluno: response[i].nomeAluno,
+                            matriculaAluno: response[i].matriculaAluno,
+                            anoAluno: response[i].anoAluno,
+                            turmaidAluno: response[i].turmaidAluno,
+                            turnoAluno: response[i].turnoAluno,
+                            escolaID: response[i].escolaID);
+                        usuarios.add(usuario);
+                      }
+                      return Container();
+                    } else {
+                      return Container();
+                    }
+                  }),
+              Container(
+                width: constraints.maxWidth,
+                height: constraints.maxHeight * .4,
+                alignment: Alignment.center,
+                child: Column(
+                  children: [
+                    Image.asset(
+                      'images/home.png',
+                      height: constraints.maxHeight * .40,
+                      width: constraints.maxWidth * .40,
+                    ),
+                  ],
                 ),
               ),
-              obscureText: exibe == false ? true : false,
-            ),
-          ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              primary: Colors.purple,
-              onPrimary: Colors.purple[50],
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30.0),
+              SizedBox(
+                width: constraints.maxWidth * .7,
+                height: constraints.maxHeight * 0.1,
+                child: TextFormField(
+                  keyboardType: TextInputType.number,
+                  controller: matricula,
+                  decoration: const InputDecoration(
+                    labelText: 'Matricula',
+                    hintText: '...',
+                  ),
+                ),
               ),
-            ),
-            onPressed: () {
-              if (_validacao(matricula.text, senha.text)) {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Home(
-                      usuario: usuario,
+              SizedBox(
+                width: constraints.maxWidth * .7,
+                height: constraints.maxHeight * 0.1,
+                child: TextFormField(
+                  controller: senha,
+                  decoration: InputDecoration(
+                    labelText: 'Senha',
+                    hintText: '...',
+                    suffixIcon: GestureDetector(
+                      child: Icon(
+                          exibe == false
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                          color: Colors.purple),
+                      onTap: () {
+                        setState(() {
+                          exibe = !exibe;
+                        });
+                      },
                     ),
                   ),
-                );
-              } else {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content: Text(
-                    'matricula ou senha incorretos...',
-                    style: TextStyle(fontSize: 16),
-                  ),
-                ));
-              }
-            },
-            child: const Padding(
-              padding: EdgeInsets.fromLTRB(25, 15, 25, 15),
-              child: Text(
-                'Entrar',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontSize: 25,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
+                  obscureText: exibe == false ? true : false,
+                ),
               ),
-            ),
-          ),
-        ],
+              Padding(padding: EdgeInsets.all(constraints.maxHeight * 0.03)),
+              SizedBox(
+                width: constraints.maxWidth * .4,
+                height: constraints.maxHeight * .06,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.purple,
+                    onPrimary: Colors.purple[50],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                  ),
+                  onPressed: () {
+                    if (_validacao(matricula.text, senha.text)) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Home(
+                            usuario: usuario,
+                          ),
+                        ),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text(
+                          'matricula ou senha incorretos...',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ));
+                    }
+                  },
+                  child: Text(
+                    'Entrar',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: constraints.maxHeight * .03,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+            ],
+          );
+        }),
       ),
     );
   }

@@ -23,219 +23,222 @@ class _AlunoState extends State<Aluno> {
         backgroundColor: Colors.purple,
       ),
       backgroundColor: Colors.white,
-      body: Container(
-        padding: const EdgeInsets.fromLTRB(40, 10, 40, 0),
-        child: Center(
-          child: ListView(
-            children: [
-              const Padding(padding: EdgeInsets.all(30)),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.purple,
-                  onPrimary: Colors.purple[50],
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Faltas(
-                        usuario: widget.usuario,
-                      ),
+      body: LayoutBuilder(builder: (context, constraints) {
+        return Container(
+          padding: EdgeInsets.fromLTRB(constraints.maxWidth * 0.1,
+              constraints.maxHeight * 0.005, constraints.maxWidth * 0.1, 0),
+          child: Center(
+            child: ListView(
+              children: [
+                Padding(padding: EdgeInsets.all(constraints.maxHeight * 0.03)),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.purple,
+                    onPrimary: Colors.purple[50],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
                     ),
-                  );
-                },
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
-                  child: Column(
-                    children: const [
-                      Icon(
-                        Icons.calendar_today_rounded,
-                        size: 40,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        "Faltas",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          // fontFamily: 'Ms Madi')
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Faltas(
+                          usuario: widget.usuario,
                         ),
                       ),
-                    ],
-                  ),
-                ),
-              ),
-              const Padding(padding: EdgeInsets.all(20)),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.purple,
-                  onPrimary: Colors.purple[50],
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Avisos(
-                        usuario: widget.usuario,
-                      ),
-                    ),
-                  );
-                },
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
-                  child: Column(
-                    children: const [
-                      Icon(
-                        Icons.add_alert,
-                        size: 40,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        "Avisos",
-                        style: TextStyle(
-                          fontSize: 20,
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.calendar_today_rounded,
+                          size: constraints.maxHeight * 0.06,
                           color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          // fontFamily: 'Ms Madi')
+                        ),
+                        Text(
+                          "Faltas",
+                          style: TextStyle(
+                            fontSize: constraints.maxHeight * 0.03,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            // fontFamily: 'Ms Madi')
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const Padding(padding: EdgeInsets.all(20)),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.purple,
+                    onPrimary: Colors.purple[50],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Avisos(
+                          usuario: widget.usuario,
                         ),
                       ),
-                    ],
-                  ),
-                ),
-              ),
-              const Padding(padding: EdgeInsets.all(20)),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.purple,
-                  onPrimary: Colors.purple[50],
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Provas(
-                        usuario: widget.usuario,
-                      ),
-                    ),
-                  );
-                },
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
-                  child: Column(
-                    children: const [
-                      Icon(
-                        Icons.warning,
-                        size: 40,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        "Provas",
-                        style: TextStyle(
-                          fontSize: 20,
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.add_alert,
+                          size: constraints.maxHeight * 0.06,
                           color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          // fontFamily: 'Ms Madi')
+                        ),
+                        Text(
+                          "Avisos",
+                          style: TextStyle(
+                            fontSize: constraints.maxHeight * 0.03,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            // fontFamily: 'Ms Madi')
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const Padding(padding: EdgeInsets.all(20)),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.purple,
+                    onPrimary: Colors.purple[50],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Provas(
+                          usuario: widget.usuario,
                         ),
                       ),
-                    ],
-                  ),
-                ),
-              ),
-              const Padding(padding: EdgeInsets.all(20)),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.purple,
-                  onPrimary: Colors.purple[50],
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Boletim(
-                        usuario: widget.usuario,
-                      ),
-                    ),
-                  );
-                },
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
-                  child: Column(
-                    children: const [
-                      Icon(
-                        Icons.person,
-                        size: 40,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        "Boletim",
-                        style: TextStyle(
-                          fontSize: 20,
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.warning,
+                          size: constraints.maxHeight * 0.06,
                           color: Colors.white,
-                          fontWeight: FontWeight.bold,
+                        ),
+                        Text(
+                          "Provas",
+                          style: TextStyle(
+                            fontSize: constraints.maxHeight * 0.03,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            // fontFamily: 'Ms Madi')
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const Padding(padding: EdgeInsets.all(20)),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.purple,
+                    onPrimary: Colors.purple[50],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Boletim(
+                          usuario: widget.usuario,
                         ),
                       ),
-                    ],
-                  ),
-                ),
-              ),
-              const Padding(padding: EdgeInsets.all(20)),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.purple,
-                  onPrimary: Colors.purple[50],
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Tarefas(
-                        usuario: widget.usuario,
-                      ),
-                    ),
-                  );
-                },
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
-                  child: Column(
-                    children: const [
-                      Icon(
-                        Icons.book_sharp,
-                        size: 40,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        "Tarefas",
-                        style: TextStyle(
-                          fontSize: 20,
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.person,
+                          size: constraints.maxHeight * 0.06,
                           color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          // fontFamily: 'Ms Madi')
+                        ),
+                        Text(
+                          "Boletim",
+                          style: TextStyle(
+                            fontSize: constraints.maxHeight * 0.03,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const Padding(padding: EdgeInsets.all(20)),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.purple,
+                    onPrimary: Colors.purple[50],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Tarefas(
+                          usuario: widget.usuario,
                         ),
                       ),
-                    ],
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.book_sharp,
+                          size: constraints.maxHeight * 0.06,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          "Tarefas",
+                          style: TextStyle(
+                            fontSize: constraints.maxHeight * 0.03,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            // fontFamily: 'Ms Madi')
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ),
+        );
+      }),
       bottomNavigationBar: Container(
         color: Colors.purple[400],
         child: const Text('v.1.0',

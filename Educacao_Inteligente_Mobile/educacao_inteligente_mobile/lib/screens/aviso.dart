@@ -101,7 +101,8 @@ class _AvisosState extends State<Avisos> {
                         tipoaviso: response[i].tipoaviso,
                         disciplinaNome: response[i].disciplinaNome,
                         professorNome: response[i].professorNome,
-                        turmaNome: response[i].turmaNome);
+                        turmaNome: response[i].turmaNome,
+                        observacao: response[i].observacao);
                     selectedDay = DateTime.parse(response[i].dataEntrega);
                     if (selectedDay != null && widget.atualiza == 0) {
                       if (avisosdia[selectedDay] == null) {
@@ -186,127 +187,173 @@ class _AvisosState extends State<Avisos> {
             ),
           ],
           Expanded(
-            child: ListView.builder(
-              itemCount: eventos.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: const Text(
-                    'Atenção',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  ),
-                  subtitle: Text(
-                    eventos[index].dataEntrega,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.normal, fontSize: 18),
-                  ),
-                  leading: const Icon(
-                    Icons.add_alert,
-                    size: 40,
-                    color: Colors.red,
-                  ),
-                  onTap: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          backgroundColor: Colors.white,
-                          title: Text(
-                            eventos[index].descricao,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 25),
-                          ),
-                          content: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Padding(
-                                padding: EdgeInsets.all(2),
-                              ),
-                              Row(
+            child: LayoutBuilder(builder: (context, constraints) {
+              return ListView.builder(
+                itemCount: eventos.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: const Text(
+                      'Atenção',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
+                    subtitle: Text(
+                      eventos[index].dataEntrega,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.normal, fontSize: 18),
+                    ),
+                    leading: const Icon(
+                      Icons.add_alert,
+                      size: 40,
+                      color: Colors.red,
+                    ),
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            backgroundColor: Colors.white,
+                            title: Text(
+                              eventos[index].descricao,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 25),
+                            ),
+                            content: SizedBox(
+                              width: constraints.maxWidth * 0.95,
+                              child: ListView(
                                 children: [
-                                  const Text(
-                                    "Disciplina: ",
-                                    style: TextStyle(
-                                        color: Colors.red,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20),
-                                  ),
-                                  Text(
-                                    eventos[index].disciplinaNome,
-                                    style: const TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: 20),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        alignment: Alignment.center,
+                                        decoration: BoxDecoration(
+                                          color: Colors.purple[500],
+                                          borderRadius: const BorderRadius.only(
+                                            topRight: Radius.circular(15.0),
+                                            topLeft: Radius.circular(15.0),
+                                            bottomLeft: Radius.circular(15.0),
+                                            bottomRight: Radius.circular(15.0),
+                                          ),
+                                        ),
+                                        child: const Text(
+                                          "Disciplina ",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.all(
+                                            constraints.maxHeight * 0.02),
+                                      ),
+                                      Text(
+                                        eventos[index].disciplinaNome,
+                                        textAlign: TextAlign.justify,
+                                        style: const TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.all(
+                                            constraints.maxHeight * 0.02),
+                                      ),
+                                      Container(
+                                        alignment: Alignment.center,
+                                        decoration: BoxDecoration(
+                                          color: Colors.purple[500],
+                                          borderRadius: const BorderRadius.only(
+                                            topRight: Radius.circular(15.0),
+                                            topLeft: Radius.circular(15.0),
+                                            bottomLeft: Radius.circular(15.0),
+                                            bottomRight: Radius.circular(15.0),
+                                          ),
+                                        ),
+                                        child: const Text(
+                                          "Professor ",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.all(
+                                            constraints.maxHeight * 0.02),
+                                      ),
+                                      Text(
+                                        eventos[index].professorNome,
+                                        textAlign: TextAlign.justify,
+                                        style: const TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.all(
+                                            constraints.maxHeight * 0.02),
+                                      ),
+                                      Container(
+                                        alignment: Alignment.center,
+                                        decoration: BoxDecoration(
+                                          color: Colors.purple[500],
+                                          borderRadius: const BorderRadius.only(
+                                            topRight: Radius.circular(15.0),
+                                            topLeft: Radius.circular(15.0),
+                                            bottomLeft: Radius.circular(15.0),
+                                            bottomRight: Radius.circular(15.0),
+                                          ),
+                                        ),
+                                        child: const Text(
+                                          "Observações ",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.all(
+                                            constraints.maxHeight * 0.02),
+                                      ),
+                                      Text(
+                                        eventos[index].observacao,
+                                        textAlign: TextAlign.justify,
+                                        style: const TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
-                              const Padding(
-                                padding: EdgeInsets.all(2),
-                              ),
-                              Row(
-                                children: [
-                                  const Text(
-                                    "Professor: ",
-                                    style: TextStyle(
-                                        color: Colors.red,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20),
-                                  ),
-                                  Text(
-                                    eventos[index].professorNome,
-                                    style: const TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: 20),
-                                  ),
-                                ],
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.all(2),
-                              ),
-                              Row(
-                                children: const [
-                                  Text(
-                                    "Observações: ",
-                                    style: TextStyle(
-                                        color: Colors.red,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20),
-                                  ),
-                                ],
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.all(2),
-                              ),
-                              Text(
-                                eventos[index].descricao,
-                                style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 20),
-                              ),
+                            ),
+                            actions: [
+                              TextButton(
+                                child: const Text(
+                                  'Voltar',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                              )
                             ],
-                          ),
-                          actions: [
-                            TextButton(
-                              child: const Text(
-                                'Voltar',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 20),
-                              ),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                            )
-                          ],
-                        );
-                      },
-                    );
-                  },
-                );
-              },
-            ),
+                          );
+                        },
+                      );
+                    },
+                  );
+                },
+              );
+            }),
           ),
         ],
       ),

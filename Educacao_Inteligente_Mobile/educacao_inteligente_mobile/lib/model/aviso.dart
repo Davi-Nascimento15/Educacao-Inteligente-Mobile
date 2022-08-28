@@ -6,6 +6,7 @@ class Aviso {
   String dataEntrega;
   String dataGeracao;
   String descricao;
+  String observacao;
   int disciplina_iddisciplina;
   int professor_idprofessor;
   int turma_idTurma;
@@ -19,6 +20,7 @@ class Aviso {
       this.dataEntrega,
       this.dataGeracao,
       this.descricao,
+      this.observacao,
       this.disciplina_iddisciplina,
       this.professor_idprofessor,
       this.turma_idTurma,
@@ -34,6 +36,7 @@ class Aviso {
         dataEntrega: json['dataEntrega'],
         dataGeracao: json['datageracao'],
         descricao: json['descricao'],
+        observacao: json['observacao'],
         disciplina_iddisciplina: json['disciplina_iddisciplina'],
         professor_idprofessor: json['professor_idprofessor'],
         turma_idTurma: json['turma_idTurma'],
@@ -50,6 +53,7 @@ class Aviso {
       "dataEntrega": dataEntrega,
       "dataGeracao": dataGeracao,
       "descricao": descricao,
+      "observacao": observacao,
       "disciplina_iddisciplina": disciplina_iddisciplina,
       "professor_idprofessor": professor_idprofessor,
       "turma_idTurma": turma_idTurma,
