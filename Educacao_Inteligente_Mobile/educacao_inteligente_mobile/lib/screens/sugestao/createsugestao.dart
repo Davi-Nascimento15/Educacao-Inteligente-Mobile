@@ -47,6 +47,7 @@ class _CreateSugestaoState extends State<CreateSugestao> {
               padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
             ),
             TextFormField(
+              maxLength: 255,
               controller: controllertitulo,
               decoration: const InputDecoration(
                 labelText: 'Título',
@@ -57,6 +58,7 @@ class _CreateSugestaoState extends State<CreateSugestao> {
               padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
             ),
             TextFormField(
+              maxLength: 255,
               controller: controllerdescricao,
               decoration: const InputDecoration(
                 labelText: 'Descrição',

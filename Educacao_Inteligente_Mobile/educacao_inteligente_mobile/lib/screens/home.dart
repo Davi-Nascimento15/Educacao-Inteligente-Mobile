@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:educacao_inteligente_mobile/model/usuario.dart';
 import 'package:educacao_inteligente_mobile/screens/aluno.dart';
 import 'package:educacao_inteligente_mobile/screens/anoletivo.dart';
@@ -5,7 +6,6 @@ import 'package:educacao_inteligente_mobile/screens/galeria/listgaleria.dart';
 import 'package:educacao_inteligente_mobile/screens/login.dart';
 import 'package:educacao_inteligente_mobile/screens/noticia/listnoticia.dart';
 import 'package:educacao_inteligente_mobile/screens/sugestao/escolhasugestao.dart';
-import 'package:educacao_inteligente_mobile/screens/listchat.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -17,16 +17,43 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
-final Uri _url = Uri.parse('https://www2.educacao.mg.gov.br/');
-Future<void> _launchUrl() async {
-  if (!await launchUrl(_url)) {
-    throw 'Could not launch $_url';
-  }
-}
+// final Uri _url = Uri.parse('https://www2.educacao.mg.gov.br/');
+// Future<void> _launchUrl() async {
+//   if (!await launchUrl(_url)) {
+//     throw 'Could not launch $_url';
+//   }
+// }
 
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    opensecretary() async {
+      var urlsecretary = 'https://www2.educacao.mg.gov.br/';
+      if (Platform.isAndroid) {
+        if (await canLaunchUrl(Uri.parse(urlsecretary))) {
+          await launch(urlsecretary,
+              forceWebView: false, enableJavaScript: true);
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text("Nenhum navegador instalado!")));
+        }
+      }
+    }
+
+    openwhatsapp() async {
+      var whatsapp = "+5535988740169";
+      var urlandroid =
+          Uri.parse("whatsapp://send?phone=" + whatsapp + "&text=hello");
+      if (Platform.isAndroid) {
+        if (await canLaunchUrl(urlandroid)) {
+          await launchUrl(urlandroid);
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text("Whatsapp não instalado!")));
+        }
+      }
+    }
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: LayoutBuilder(
@@ -143,14 +170,15 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => ListChat(
-                                    usuario: widget.usuario,
-                                  ),
-                                ),
-                              );
+                              openwhatsapp();
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //     builder: (context) => ListChat(
+                              //       usuario: widget.usuario,
+                              //     ),
+                              //   ),
+                              // );
                             },
                             child: Padding(
                               padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
@@ -339,7 +367,8 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                             onPressed: () {
-                              _launchUrl();
+                              //_launchUrl();
+                              opensecretary();
                             },
                             child: Padding(
                               padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),

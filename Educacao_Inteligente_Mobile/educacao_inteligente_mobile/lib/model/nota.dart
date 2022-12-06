@@ -5,7 +5,7 @@ import 'dart:convert';
 class Nota {
   int idNota;
   int anoletivo;
-  double nota;
+  var nota;
   int bimestre;
   int aluno_idaluno;
   int disciplina_iddiciplina;

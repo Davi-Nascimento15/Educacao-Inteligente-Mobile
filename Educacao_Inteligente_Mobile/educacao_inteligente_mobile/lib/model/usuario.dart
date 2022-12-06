@@ -7,7 +7,7 @@ class Usuario {
   int tipo;
   int idaluno;
   int anoAluno;
-  int matriculaAluno;
+  String matriculaAluno;
   String nomeAluno;
   int turnoAluno;
   int turmaidAluno;

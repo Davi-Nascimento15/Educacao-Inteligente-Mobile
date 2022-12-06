@@ -13,6 +13,7 @@ class ListNoticia extends StatefulWidget {
 
 class _ListNoticiaState extends State<ListNoticia> {
   Future<void> _refresh() {
+    setState(() {});
     return Future.delayed(
       const Duration(seconds: 2),
     );
@@ -44,7 +45,7 @@ class _ListNoticiaState extends State<ListNoticia> {
                 itemBuilder: (context, index) => response[index].render(),
               );
             } else {
-              return const CircularProgressIndicator();
+              return Container();
             }
           },
         ),

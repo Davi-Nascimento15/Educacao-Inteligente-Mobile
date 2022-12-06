@@ -67,7 +67,7 @@ class _BoletimState extends State<Boletim> {
         if (aux[k].disciplina_iddiciplina == disciplina.iddisciplina) {
           data = DataCell(
             Text(
-              aux[k].nota.toString(),
+              double.parse(aux[k].nota.toString()).toString(),
               textAlign: TextAlign.center,
               style: const TextStyle(fontSize: 20),
             ),

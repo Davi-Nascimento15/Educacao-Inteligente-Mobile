@@ -123,11 +123,86 @@ class _MyListSugestaoState extends State<MyListSugestao> {
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            title: Text(response[index].titulo),
-                            content: Text(response[index].descricao),
+                            backgroundColor: Colors.white,
+                            title: Column(
+                              children: [
+                                Container(
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    color: Colors.purple[500],
+                                    borderRadius: const BorderRadius.only(
+                                      topRight: Radius.circular(15.0),
+                                      topLeft: Radius.circular(15.0),
+                                      bottomLeft: Radius.circular(15.0),
+                                      bottomRight: Radius.circular(15.0),
+                                    ),
+                                  ),
+                                  child: const Text(
+                                    "Título",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  ),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.all(10),
+                                ),
+                                Text(
+                                  response[index].titulo,
+                                  textAlign: TextAlign.justify,
+                                  style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                              ],
+                            ),
+                            content: SizedBox(
+                              width: 100,
+                              child: ListView(
+                                children: [
+                                  Container(
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      color: Colors.purple[500],
+                                      borderRadius: const BorderRadius.only(
+                                        topRight: Radius.circular(15.0),
+                                        topLeft: Radius.circular(15.0),
+                                        bottomLeft: Radius.circular(15.0),
+                                        bottomRight: Radius.circular(15.0),
+                                      ),
+                                    ),
+                                    child: const Text(
+                                      "Descrição",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20),
+                                    ),
+                                  ),
+                                  const Padding(
+                                    padding: EdgeInsets.all(10),
+                                  ),
+                                  Text(
+                                    response[index].descricao,
+                                    textAlign: TextAlign.justify,
+                                    style: const TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  ),
+                                ],
+                              ),
+                            ),
                             actions: [
                               TextButton(
-                                child: const Text("OK"),
+                                child: const Text(
+                                  "OK",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15),
+                                ),
                                 onPressed: () {
                                   Navigator.pop(context);
                                 },
@@ -142,7 +217,7 @@ class _MyListSugestaoState extends State<MyListSugestao> {
               },
             );
           } else {
-            return const CircularProgressIndicator();
+            return Container();
           }
         },
       ),
