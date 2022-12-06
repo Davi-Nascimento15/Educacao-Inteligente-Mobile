@@ -49,8 +49,18 @@ class _ProvasState extends State<Provas> {
   }
 
   void daySelected(DateTime day, List events, List holidays) {
+    int c = 0;
+    Aviso av;
     for (int i = 0; i < events.length; i++) {
-      eventos.add(events[i]);
+      av = events[i];
+      for (int j = 0; j < eventos.length; j++) {
+        if (eventos[j].descricao == av.descricao) {
+          c++;
+        }
+      }
+      if (c == 0) {
+        eventos.add(events[i]);
+      }
     }
     if (events.isEmpty) {
       eventos.clear();
