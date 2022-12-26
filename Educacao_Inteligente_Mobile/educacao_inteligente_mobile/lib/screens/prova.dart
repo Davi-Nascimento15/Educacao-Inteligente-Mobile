@@ -202,10 +202,12 @@ class _ProvasState extends State<Provas> {
                 itemCount: eventos.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: const Text(
-                      'Atenção',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    title: Text(
+                      eventos[index].descricao.length > 30
+                          ? eventos[index].descricao.substring(0, 30)
+                          : eventos[index].descricao,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                     subtitle: Text(
                       eventos[index].dataEntrega,

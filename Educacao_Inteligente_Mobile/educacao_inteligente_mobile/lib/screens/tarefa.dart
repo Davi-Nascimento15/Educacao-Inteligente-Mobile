@@ -205,7 +205,9 @@ class _TarefasState extends State<Tarefas> {
                   itemBuilder: (context, index) {
                     return ListTile(
                       title: Text(
-                        eventos[index].descricao,
+                        eventos[index].descricao.length > 30
+                            ? eventos[index].descricao.substring(0, 30)
+                            : eventos[index].descricao,
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
                       ),
